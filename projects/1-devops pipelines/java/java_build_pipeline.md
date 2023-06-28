@@ -1,41 +1,6 @@
-
-<head>
-  <h1>Problem-Solving and Automation in Software Project Management</h1>
-</head>
 <body>
   <header>
-    <h1>Situation:</h1>
-  </header>
-  <p>The situation involved a project that was facing erratic build failures, causing delays and inefficiency in the software development lifecycle. The inconsistent build environment was affecting the project deadline, and it was imperative for us to stabilize the build process.</p>
-
-  <header>
-    <h1>Task:</h1>
-  </header>
-  <p>My task, as a software engineer, was to diagnose the source of these failures and devise an efficient, reproducible Maven build script that would ensure consistent project builds.</p>
-
-  <header>
-    <h1>Action:</h1>
-  </header>
-  <p>I developed the Bash script provided above. The script begins by setting the necessary environment variables for Maven. Project-specific variables were subsequently declared, and previous builds are removed to avoid conflicts. Depending on the specified build mode, the script then either compiles the project or packages it; it also performs necessary test validation. Upon successful build, the script installs the newly created artifacts to the local Maven repository. It subsequently generates various test reports, with the build process repeating itself automatically.</p>
-
-  <header>
-    <h1>Result:</h1>
-  </header>
-  <p>The script was successfully integrated into the project's existing CI/CD pipeline. With its implementation, the project build became more stable, significantly reducing the previously faced random build failures. As a result, the team was able to consistently progress according to the project timeline with failures almost nullified. The solution improved the efficiency of the development process and increased the overall code quality with consistent and reliable testing.</p>
-
-  <header>
-    <p>The above presentation is a demonstration of problem-solving and automation applied in real-world software project management scenarios, showcasing the importance of a scripting language like Bash in facilitating efficient software development.</p>
-  </header>
-</body>
-
-
-
-
-
-
-<body>
-  <header>
-    <h1>Job Definition for "build" in YAML:</h1>
+    <h1>Devise an efficient, reproducible Maven build script that would ensure consistent project builds.</h1>
   </header>
   <p>This YAML file defines a job named "build" that runs on every push to the "main" branch of the repository. The job runs on an Ubuntu machine and consists of several steps.</p>
 
