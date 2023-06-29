@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OpenStack Microservices Deployment</title>
+  <title>Terraform Deployment Guide</title>
 </head>
 <body>
-  <h1>OpenStack Microservices Deployment</h1>
+  <h1>Terraform Deployment Guide</h1>
 
   <ol>
     <li>
-      <h2>Install OpenStack and Dependencies</h2>
-      <p>Install OpenStack on your local machine or use a cloud-based platform such as Linode or AWS that offers OpenStack as a service. Additionally, install Docker, Kubernetes, and Zuul on your machine or utilize OpenStack's Magnum, Kolla, and Zuul services respectively.</p>
+      <h2>Install Terraform and Authenticate to GCP</h2>
+      <p>Install Terraform on your local machine or use a cloud-based IDE such as Cloud Shell. Also, install the gcloud command-line tool and authenticate to GCP using your credentials.</p>
     </li>
     <li>
-      <h2>Break Down Monolithic Application</h2>
-      <p>Break down your monolithic application into multiple microservices based on functionality, domain, or responsibility. Each microservice should have its own code repository, database, and API.</p>
+      <h2>Create Project Folder and Initialize</h2>
+      <p>Create a folder for your Terraform project and initialize it with <code>terraform init</code> to download the required providers and modules.</p>
     </li>
     <li>
-      <h2>Write Dockerfiles</h2>
-      <p>Write Dockerfiles for each microservice that specify the base image, dependencies, environment variables, commands, and ports.</p>
-      <pre><code># Example Dockerfile for user service
-FROM python:3.8-slim-buster
-WORKDIR /app
-COPY . /app
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-EXPOSE 5000
-ENV NAME User
-CMD ["python", "app.py"]
-      </code></pre>
+      <h2>Create Main Configuration File</h2>
+      <p>Create a <code>main.tf</code> file that contains the main configuration for your project. You can also create separate files for variables, outputs, and modules.</p>
     </li>
     <li>
-      <h2>Build and Push Docker Images</h2>
-      <p>Build and push the Docker images for each microservice to a registry such as Docker Hub or OpenStack Swift.</p>
-      <pre><code># Build and push Docker image for user service
-docker build -t user-service .
-docker tag user-service:latest myusername/user-service:latest
-docker push myusername/user-service:latest
-      </code></pre>
+      <h2>Configure GCP Provider</h2>
+      <p>Specify the project, region, and zone for your resources in the GCP provider configuration.</p>
     </li>
     <li>
-      <h2>Create Kubernetes Cluster</h2>
-      <p>Use OpenStack's Magnum service to create a Kubernetes cluster for your microservices.</p>
-      <pre><code># Create Kubernetes cluster using Magnum
-openstack coe cluster template create k8s-cluster-template ...
-openstack coe cluster create k8s-cluster ...
-      </code></pre>
+      <h2>Create GKE Cluster</h2>
+      <p>Use the <code>google_container_cluster</code> resource type to create a GKE cluster with the desired settings.</p>
     </li>
     <li>
-      <h2>Create Users and Projects</h2>
-      <p>Use OpenStack's Keystone service to create users, projects, roles, and tokens for your microservices.</p>
-      <pre><code># Create users, projects, roles, and tokens using Keystone
-openstack project create ...
-openstack user create ...
-openstack role create ...
-openstack role add ...
-openstack token issue ...
-      </code></pre>
+      <h2>Configure Kubernetes Provider</h2>
+      <p>Specify the host, token, and cluster ca certificate for your cluster in the Kubernetes provider configuration.</p>
     </li>
     <li>
-      <h2>Create Networks and Security Groups</h2>
-      <p>Use OpenStack's Neutron service to create networks, subnets, routers, security groups, and network policies for your microservices.</p>
-      <pre><code># Create networks, subnets, routers, security groups, and network policies using Neutron
-openstack network create ...
-openstack subnet create ...
-openstack router create ...
-openstack security group create ...
-openstack security group rule create ...
-openstack network policy create ...
-      </code></pre>
+      <h2>Configure Helm Provider</h2>
+      <p>Specify the service account, namespace, and Kubernetes settings for Tiller in the Helm provider configuration.</p>
     </li>
     <li>
-      <h2>Create Load Balancers</h2>
-      <p>Use OpenStack's Octavia service to create load balancers, listeners, pools, and members for your microservices.</p>
-      <pre><code># Create load balancers, listeners, pools
-
+      <h2>Deploy Applications using Helm Charts</h2>
+      <p>Use Helm charts to deploy your applications. Use the <code>helm_release</code> resource type to specify the chart, values, and namespace for each application.</p>
+    </li>
+    <li>
+      <h2>Monitor and Manage Resources</h2>
+      <p>Use Terraform and Helm commands to monitor and manage your resources. Use <code>terraform plan</code>, <code>terraform apply</code>, <code>terraform show</code>, <code>terraform output</code>, and <code>terraform destroy</code> for Terraform operations. Use <code>helm list</code>, <code>helm status</code>, <code>helm upgrade</code>, <code>helm rollback</code>, and <code>helm delete</code> for Helm operations.</p>
+    </li>
+  </ol>
+</body>
+</html>

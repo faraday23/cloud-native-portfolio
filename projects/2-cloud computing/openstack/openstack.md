@@ -1,52 +1,75 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Cloud Engineering Case Study</title>
-  </head>
-  <body>
-    <h1>Situation</h1>
-    <p>
-      I was part of a cloud engineering team in a company that offers an e-commerce platform. The application was initially monolithic and hosted on on-premises servers, and as the user base grew, performance began to degrade due to the inherent scalability limitations of our monolithic architecture.
-    </p>
-    
-    <h1>Task</h1>
-    <p>
-      Our goal was to eliminate the performance bottlenecks and enable smoother scalability by transitioning to a microservices architecture. We selected OpenStack to host our services due to its comprehensive suite of tools and its open-source nature that offered us customization flexibility.
-    </p>
-    
-    <h1>Action</h1>
-    <p>
-      We started by breaking down the monolithic application into multiple microservices and containerizing each with Docker. We then used OpenStack's Magnum to set up a Kubernetes (K8s) cluster for our containerized applications. For user authentication, we used OpenStack's Keystone which served as our identity service.
-    </p>
-    
-    <p>
-      To create a secure network for our services, we used OpenStack Neutron. Using Neutron, we created private networks, attached security group rules, and established network policies.
-    </p>
-    
-    <p>
-      Next, to balance traffic, we integrated our services with the Octavia load balancing service. Our databases were managed using Trove, which gave us the means to handle large scale data with high availability.
-    </p>
-    
-    <p>
-      For monitoring our services effectively, we used Ceilometer for detailed insight into our application's performance. Also, all Docker images created for our microservices were stored and managed using OpenStack Swift.
-    </p>
-    
-    <p>
-      Finally, we created a CI/CD pipeline using Zuul to facilitate continuous development, integration, and deployment, ensuring our team could rapidly iterate and deploy changes to production.
-    </p>
-    
-    <h1>Issue/Problem</h1>
-    <p>
-      During the process, we faced a significant problem. Some services were not communicating properly with each other, resulting in intermittent application failures.
-    </p>
-    
-    <h1>Resolution</h1>
-    <p>
-      To resolve this, I first reviewed the Neutron network policies and found some misconfigurations that were blocking necessary traffic between services. After rectifying the network policies and security rules, interservice communication was restored, and the application started functioning correctly.
-    </p>
-    
-    <h1>Result</h1>
-    <p>
-      Post migration, our application could easily scale based on demand and was more resilient due to the innate fault tolerance of the microservice architecture. Development became more agile as each microservice could be developed and deployed independently. This led to a superior customer experience, with shorter response times and less downtime even during peak traffic periods.
-    </p>
-  </body>
-</html>
+<head>
+  <title>OpenStack Microservices Deployment</title>
+</head>
+<body>
+  <h1>OpenStack Microservices Deployment</h1>
+
+  <ol>
+    <li>
+      <h2>Install OpenStack and Dependencies</h2>
+      <p>Install OpenStack on your local machine or use a cloud-based platform such as Linode or AWS that offers OpenStack as a service. Additionally, install Docker, Kubernetes, and Zuul on your machine or utilize OpenStack's Magnum, Kolla, and Zuul services respectively.</p>
+    </li>
+    <li>
+      <h2>Break Down Monolithic Application</h2>
+      <p>Break down your monolithic application into multiple microservices based on functionality, domain, or responsibility. Each microservice should have its own code repository, database, and API.</p>
+    </li>
+    <li>
+      <h2>Write Dockerfiles</h2>
+      <p>Write Dockerfiles for each microservice that specify the base image, dependencies, environment variables, commands, and ports.</p>
+      <pre><code># Example Dockerfile for user service
+FROM python:3.8-slim-buster
+WORKDIR /app
+COPY . /app
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+EXPOSE 5000
+ENV NAME User
+CMD ["python", "app.py"]
+      </code></pre>
+    </li>
+    <li>
+      <h2>Build and Push Docker Images</h2>
+      <p>Build and push the Docker images for each microservice to a registry such as Docker Hub or OpenStack Swift.</p>
+      <pre><code># Build and push Docker image for user service
+docker build -t user-service .
+docker tag user-service:latest myusername/user-service:latest
+docker push myusername/user-service:latest
+      </code></pre>
+    </li>
+    <li>
+      <h2>Create Kubernetes Cluster</h2>
+      <p>Use OpenStack's Magnum service to create a Kubernetes cluster for your microservices.</p>
+      <pre><code># Create Kubernetes cluster using Magnum
+openstack coe cluster template create k8s-cluster-template ...
+openstack coe cluster create k8s-cluster ...
+      </code></pre>
+    </li>
+    <li>
+      <h2>Create Users and Projects</h2>
+      <p>Use OpenStack's Keystone service to create users, projects, roles, and tokens for your microservices.</p>
+      <pre><code># Create users, projects, roles, and tokens using Keystone
+openstack project create ...
+openstack user create ...
+openstack role create ...
+openstack role add ...
+openstack token issue ...
+      </code></pre>
+    </li>
+    <li>
+      <h2>Create Networks and Security Groups</h2>
+      <p>Use OpenStack's Neutron service to create networks, subnets, routers, security groups, and network policies for your microservices.</p>
+      <pre><code># Create networks, subnets, routers, security groups, and network policies using Neutron
+openstack network create ...
+openstack subnet create ...
+openstack router create ...
+openstack security group create ...
+openstack security group rule create ...
+openstack network policy create ...
+      </code></pre>
+    </li>
+    <li>
+      <h2>Create Load Balancers</h2>
+      <p>Use OpenStack's Octavia service to create load balancers, listeners, pools, and members for your microservices.</p>
+      <pre><code># Create load balancers, listeners, pools
+
