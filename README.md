@@ -25,7 +25,7 @@
   <tr>
     <td align="center"><a href="topics/software_development/README.md"><img src="images/programming.png" width="75px;" height="75px;" alt="programming"/><br /><b>Software Development</b></a></td>
     <td align="center"><a href="https://github.com/bregman-arie/python-exercises"><img src="images/python.png" width="75px;" height="75px;" alt="JavsScript"/><br /><b>HTML</b></a></td>
-    <td align="center"><a href="https://github.com/bregman-arie/go-exercises"><img src="images/Go.png" width="75px;" height="75px;" alt="React"/><br /><b>CSS</b></a></td>
+    <td align="center"><a href="https://github.com/bregman-arie/go-exercises"><img src="images/Go.png" width="75px;" height="75px;" alt="go"/><br /><b>Go-lang</b></a></td>
     <td align="center"><a href="projects/3-software development/javascript.md"><img src="images/javascript.png" width="75px;" height="75px;" alt="perl"/><br /><b>Javascript</b></a></td>
   </tr>
 
