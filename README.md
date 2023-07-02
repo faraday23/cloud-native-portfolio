@@ -5,7 +5,7 @@
 <table>
 
   <tr>
-    <td align="center"><a href="projects/1-devops pipelines/java_build_pipeline.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>DevOps Pipelines</b></a></td>
+    <td align="center"><a href="projects/1-devops pipelines/java_build_pipeline.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>DevOps App Build Pipelines</b></a></td>
     <td align="center"><a href="projects/1-devops pipelines/java/java_build_pipeline.md"><img src="images/java.png" width="75px;" height="75px;" alt="Git"/><br /><b>Java Build Pipeline</b></a></td>
     <td align="center"><a href="projects/1-devops pipelines/javascript/javascript_build_pipeline.md"><img src="images/javascript.png" width="75px;" height="75px;" alt="Network"/><br /><b>Javascript Build Pipeline</b></a></td>
     <td align="center"><a href="projects/1-devops pipelines/php/php_build_pipeline.md"><img src="images/php.png" width="75px;" height="75px;" alt="Hardware"/><br /><b>PHP Build Pipeline</b></a></td>
@@ -20,7 +20,7 @@
     <td align="center"><a href="projects/22-ci-cd tools/gitlab/gitlab.md"><b>GitLab</b></a></td>
     <td align="center"><a href="projects/22-ci-cd tools/Octopus Deploy/octopus.md"><b>Team City / Octopus Deploy</b></a></td>
   </tr>
-  
+
   <tr>
       <td align="center"><a href="topics/cloud/README.md"><img src="images/cloud.png" width="75px;" height="75px;" alt="Cloud"/><br/><b>Cloud Computing</b></a></td>
       <td align="center"><a href="projects/2-cloud computing/aws/aws.md"><img src="images/aws.png" width="100px;" height="75px;" alt="aws"/><br /><b>AWS</b></a></td>
@@ -143,7 +143,7 @@
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/architecture.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/architecture.jpg" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
     <td align="center"><a href="projects/17-architecture design/microservices-linkerd.md"><img src="images/monolith.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Monolith to Microservices - Linkerd</b></a></td>
     <td align="center"><a href="projects/17-architecture design/azure functions.md"><img src="images/serverless.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>FaaS-ServerLess - Azure Functions</b></a></td>
    </tr>
