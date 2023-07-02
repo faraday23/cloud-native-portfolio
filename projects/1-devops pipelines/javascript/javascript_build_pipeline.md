@@ -1,3 +1,8 @@
+  <h1>Task:</h1>
+  <p>As a DevOps Engineer, my task was to devise an automated workflow that could streamline the entire lifecycle including code testing, project build, package dependency management, and deployment optimization.</p>
+
+<br>
+
 ```yaml
 name: My Workflow
 
@@ -43,7 +48,7 @@ jobs:
           fi
         env:
           BUILD-TEST: ${{ steps.test.results.test-summary.coverage[0].result }}
-          
+
       - name: Generate code coverage report
         run: npx istanbul report
 
@@ -157,7 +162,6 @@ jobs:
       - name: Measure script performance
         run: time ./my-script
 ```
-
 
 ```shell
 #!/bin/bash
@@ -305,59 +309,54 @@ echo "Hello, $name!" > output.txt
 time ./my-script
 ```
 
-
 ```json
 {
-    "name": "my-project",
-    "version": "1.0.0",
-    "description": "My awesome JavaScript project",
-    "main": "src/index.js",
-    "scripts": {
-      "start": "node src/index.js",
-      "test": "jest",
-      "build": "webpack --mode production"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/myusername/my-project.git"
-    },
-    "keywords": [
-      "javascript",
-      "project",
-      "example"
-    ],
-    "author": "Jane Doe <jane.doe@example.com>",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/myusername/my-project/issues"
-    },
-    "homepage": "https://github.com/myusername/my-project#readme",
-    "dependencies": {
-      "axios": "^0.21.1",
-      "lodash": "^4.17.21",
-      "react": "^17.0.2",
-      "react-dom": "^17.0.2"
-    },
-    "devDependencies": {
-      "babel-core": "^6.26.3",
-      "babel-loader": "^8.2.2",
-      "babel-preset-env": "^1.7.0",
-      "jest": "^27.0.4",
-      "webpack": "^5.44.0",
-      "webpack-cli": "^4.7.2"
-    }
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "My awesome JavaScript project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myusername/my-project.git"
+  },
+  "keywords": ["javascript", "project", "example"],
+  "author": "Jane Doe <jane.doe@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myusername/my-project/issues"
+  },
+  "homepage": "https://github.com/myusername/my-project#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.0.4",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
   }
+}
 ```
 
 ```js
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -365,46 +364,47 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
 };
 ```
 
 ```js
-const gulp = require('gulp');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const cleanCSS = require('gulp-clean-css');
+const gulp = require("gulp");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const cleanCSS = require("gulp-clean-css");
 
 // Define a task to concatenate and minify JavaScript files
-gulp.task('minify-js', function() {
-  return gulp.src('src/js/*.js')
-    .pipe(concat('app.min.js'))
+gulp.task("minify-js", function () {
+  return gulp
+    .src("src/js/*.js")
+    .pipe(concat("app.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
+    .pipe(gulp.dest("dist/js"));
 });
 
 // Define a task to concatenate and minify CSS files
-gulp.task('minify-css', function() {
-  return gulp.src('src/css/*.css')
-    .pipe(concat('styles.min.css'))
+gulp.task("minify-css", function () {
+  return gulp
+    .src("src/css/*.css")
+    .pipe(concat("styles.min.css"))
     .pipe(cleanCSS())
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest("dist/css"));
 });
 
 // Define a default task to run all tasks
-gulp.task('default', gulp.series('minify-js', 'minify-css'));
+gulp.task("default", gulp.series("minify-js", "minify-css"));
 ```
-
