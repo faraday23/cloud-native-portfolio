@@ -61,7 +61,7 @@
       <td align="center"><a href="projects/7-database/mysql/mysql.md"><img src="images/mysql.png" width="75px;" height="75px;" alt="sql"/><br /><b>MySQL</b></a></td>
       <td align="center"><a href="#mongo"><img src="images/mongodb.png" width="75px;" height="75px;" alt="Mongo"/><br /><b>MongoDB</b></a></td>
       <td align="center"><a href="projects/7-database/postgressql/postgresql.md"><img src="images/postgresql.png" width="75px;" height="75px;" alt="Testing"/><br /><b>PostrgesSQL</b></a></td>
-      <td align="center"><a href="#testing"><img src="images/testing.png" width="75px;" height="75px;" alt="Testing"/><br /><b>CosmosDB</b></a></td>
+      <td align="center"><a href="#testing"><img src="images/cosmos.png" width="75px;" height="75px;" alt="Testing"/><br /><b>CosmosDB</b></a></td>
 
   </tr>
 
@@ -69,8 +69,8 @@
       <td align="center"><a href="topics/databases/README.md"><img src="images/databases.png" width="75px;" height="75px;" alt="Databases"/><br /><b>Data Processing</b></a></td>
       <td align="center"><a href="projects/8-data processing/azure data bricks.md"><img src="images/sql.png" width="75px;" height="75px;" alt="sql"/><br /><b>Azure Data Bricks</b></a></td>
       <td align="center"><a href="#mongo"><img src="images/mongo.png" width="75px;" height="75px;" alt="Mongo"/><br /><b>Azure Data Lake</b></a></td>
-      <td align="center"><a href="projects/8-data processing/azure data factory.md"><img src="images/testing.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Azure Data Factory</b></a></td>
-      <td align="center"><a href="#testing"><img src="images/testing.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Spark</b></a></td>
+      <td align="center"><a href="projects/8-data processing/azure data factory.md"><img src="images/azure_data_factory.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Azure Data Factory</b></a></td>
+      <td align="center"><a href="#testing"><img src="images/apache_spark.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Apache Spark</b></a></td>
   </tr>
   
   <tr>
@@ -134,7 +134,7 @@
    <tr>
     <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Message Queueing</b></a></td>
     <td align="center"><a href="projects/18-message queueing/rabbitmq.md"><img src="images/rabbit-mq.png" width="75px;" height="75px;" alt="Misc"/><br /><b>RabbitMQ</b></a></td>
-    <td align="center"><a href="projects/18-message queueing/kafka.md"><img src="images/kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Kafka</b></a></td>
+    <td align="center"><a href="projects/18-message queueing/kafka.md"><img src="images/apache_kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Apache Kafka</b></a></td>
    </tr>
 
    <tr>
