@@ -143,7 +143,7 @@
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/architecture.jpg" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/architecture_design.jpg" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
     <td align="center"><a href="projects/17-architecture design/microservices-linkerd.md"><img src="images/monolith.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Monolith to Microservices - Linkerd</b></a></td>
     <td align="center"><a href="projects/17-architecture design/azure functions.md"><img src="images/serverless.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>FaaS-ServerLess - Azure Functions</b></a></td>
    </tr>
