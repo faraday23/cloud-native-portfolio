@@ -24,7 +24,7 @@
 
   <tr>
     <td align="center"><a href="topics/software_development/README.md"><img src="images/programming.png" width="75px;" height="75px;" alt="programming"/><br /><b>Software Development</b></a></td>
-    <td align="center"><a href="https://github.com/bregman-arie/python-exercises"><img src="images/python.png" width="75px;" height="75px;" alt="JavsScript"/><br /><b>HTML</b></a></td>
+    <td align="center"><a href="https://github.com/bregman-arie/python-exercises"><img src="images/html.png" width="75px;" height="75px;" alt="JavsScript"/><br /><b>HTML</b></a></td>
     <td align="center"><a href="https://github.com/bregman-arie/go-exercises"><img src="images/Go.png" width="75px;" height="75px;" alt="go"/><br /><b>Go-lang</b></a></td>
     <td align="center"><a href="projects/3-software development/javascript.md"><img src="images/javascript.png" width="75px;" height="75px;" alt="perl"/><br /><b>Javascript</b></a></td>
   </tr>
@@ -67,7 +67,7 @@
   </tr>
   
   <tr>
-      <td align="center"><a href="topics/terraform/README.md"><img src="images/terraform.png" width="75px;" height="75px;" alt="Terraform"/><br /><b>Iac/Configuration Management</b></a></td>
+      <td align="center"><a href="topics/terraform/README.md"><img src="images/configuration_management.png" width="75px;" height="75px;" alt="Terraform"/><br /><b>Iac/Configuration Management</b></a></td>
       <td align="center"><a href="projects/9-configuration management/terraform/terraform.md"><img src="images/terraform.png" width="75px;" height="75px;" alt="puppet"/><br /><b>Terraform</b></a></td>
       <td align="center"><a href="projects/9-configuration management/ansible/ansible.md"><img src="images/ansible.png" width="75px;" height="75px;" alt="Distributed"/><br /><b>Ansible</b></a></td>
       <td align="center"><a href="projects/9-configuration management/packer/packer.md"><img src="images/packer.png" width="75px;" height="75px;" alt="you"/><br /><b>Packer</b></a></td>
@@ -87,12 +87,12 @@
       <td align="center"><a href="topics/Distributed Tracing/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="observability"/><br /><b>Distributed Tracing</b></a></td>
       <td align="center"><a href="#prometheus"><img src="images/application insights.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Applicaiton Insights</b></a></td>
       <td align="center"><a href="projects/11-distributed tracing/open-telemetry.md"><img src="images/otel.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Open Telemetry</b></a></td>
-      <td align="center"><a href="topics/datadog/README.md"><img src="images/logos/datadog.png" width="80px;" height="80px;" alt="DataDog"/><br /><b></b>Zipkin</a></td>
-      <td align="center"><a href="topics/grafana/README.md"><img src="images/logos/grafana.png" width="80px;" height="80px;" alt="Grafana"/><br /><b>Jaegar</b></a></td>
+      <td align="center"><a href="topics/datadog/README.md"><img src="images/zipkin.png" width="80px;" height="80px;" alt="DataDog"/><br /><b></b>Zipkin</a></td>
+      <td align="center"><a href="topics/grafana/README.md"><img src="images/jaegar.png" width="80px;" height="80px;" alt="Grafana"/><br /><b>Jaegar</b></a></td>
   </tr>
   
   <tr>
-      <td align="center"><a href="topics/observability/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="observability"/><br /><b>Networking</b></a></td>
+      <td align="center"><a href="topics/observability/README.md"><img src="images/networking.png" width="75px;" height="75px;" alt="observability"/><br /><b>Networking</b></a></td>
       <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Azure express route</b></a></td>
       <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure virtual network</b></a></td>
       <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Load Balancer</b></a></td>
@@ -100,9 +100,9 @@
   
   <tr>
       <td align="center"><a href="topics/observability/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="observability"/><br /><b>Security</b></a></td>
-      <td align="center"><a href="#prometheus"><img src="images/azure-firewall.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Azure Firewall</b></a></td>
-      <td align="center"><a href="topics/circleci/README.md"><img src="images/logos/circleci.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Sentinel</b></a></td>
-      <td align="center"><a href="topics/circleci/README.md"><img src="images/logos/circleci.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Key Vault</b></a></td>
+      <td align="center"><a href="#prometheus"><img src="images/azure_firewall.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Azure Firewall</b></a></td>
+      <td align="center"><a href="topics/circleci/README.md"><img src="images/azure_firewall.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Sentinel</b></a></td>
+      <td align="center"><a href="topics/circleci/README.md"><img src="images/azure_firewall.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Key Vault</b></a></td>
       <td align="center"><a href="projects/13-security/hashicorp vault.md"><img src="images/vault.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>HashiCorp Vault</b></a></td>
   </tr>
   
@@ -119,14 +119,15 @@
   </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Chaos Engineering</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Chaos Engineering</b></a></td>
     <td align="center"><a href="projects/16-chaos engineering/k6.md"><img src="images/k6.png" width="75px;" height="75px;" alt="Misc"/><br /><b>k6</b></a></td>
-    <td align="center"><a href="#elastic"><img src="images/elastic.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>gremlin</b></a></td>
+    <td align="center"><a href="#elastic"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>gremlin</b></a></td>
    </tr>
 
    <tr>
     <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Message Queueing</b></a></td>
     <td align="center"><a href="projects/18-message queueing/rabbitmq.md"><img src="images/rabbit-mq.png" width="75px;" height="75px;" alt="Misc"/><br /><b>RabbitMQ</b></a></td>
+    <td align="center"><a href="projects/18-message queueing/kafka.md"><img src="images/kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Kafka</b></a></td>
    </tr>
 
    <tr>
@@ -135,15 +136,15 @@
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
-    <td align="center"><a href="projects/17-architecture design/microservices-linkerd.md"><img src="images/general.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Monolith to Microservices - Linkerd</b></a></td>
-    <td align="center"><a href="projects/17-architecture design/azure functions.md"><img src="images/elastic.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>FaaS-ServerLess - Azure Functions</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/architecture.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Architecture Design</b></a></td>
+    <td align="center"><a href="projects/17-architecture design/microservices-linkerd.md"><img src="images/monolith.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Monolith to Microservices - Linkerd</b></a></td>
+    <td align="center"><a href="projects/17-architecture design/azure functions.md"><img src="images/serverless.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>FaaS-ServerLess - Azure Functions</b></a></td>
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Resume</b></a></td>
-    <td align="center"><a href="projects/20-resume/lexisnexis.md"><img src="images/lexisnexis_logo.svg" width="75px;" height="75px;" alt=""/><br /><b>LexisNexis</b></a></td>
-    <td align="center"><a href="projects/20-resume/ashley_furniture.md""><img src="images/ashley-homestore-logo.png" width="75px;" height="75px;" alt=""/><br /><b>Ashley Furniture</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/resume.png" width="75px;" height="75px;" alt="resume"/><br /><b>Resume</b></a></td>
+    <td align="center"><a href="projects/20-resume/lexisnexis.md"><img src="images/lexisnexis.png" width="75px;" height="75px;" alt=""/><br /><b>LexisNexis</b></a></td>
+    <td align="center"><a href="projects/20-resume/ashley_furniture.md""><img src="images/ashley.png" width="75px;" height="75px;" alt=""/><br /><b>Ashley Furniture</b></a></td>
     <td align="center"><a href="projects/20-resume/microsoft.md""><img src="images/microsoft.jpg" width="75px;" height="75px;" alt="Elastic"/><br /><b>Microsoft</b></a></td>
    </tr>
    
