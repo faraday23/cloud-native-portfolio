@@ -69,7 +69,7 @@
       <td align="center"><a href="topics/databases/README.md"><img src="images/databases.png" width="75px;" height="75px;" alt="Databases"/><br /><b>Data Processing</b></a></td>
       <td align="center"><a href="projects/8-data processing/azure data bricks.md"><img src="images/sql.png" width="75px;" height="75px;" alt="sql"/><br /><b>Azure Data Bricks</b></a></td>
       <td align="center"><a href="#mongo"><img src="images/mongo.png" width="75px;" height="75px;" alt="Mongo"/><br /><b>Azure Data Lake</b></a></td>
-      <td align="center"><a href="projects/8-data processing/azure data factory.md"><img src="images/azure_data_factory.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Azure Data Factory</b></a></td>
+      <td align="center"><a href="projects/8-data processing/azure data factory.md"><img src="images/azure_data_factory.jpg" width="75px;" height="75px;" alt="Testing"/><br /><b>Azure Data Factory</b></a></td>
       <td align="center"><a href="#testing"><img src="images/apache_spark.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Apache Spark</b></a></td>
   </tr>
   
