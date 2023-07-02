@@ -13,6 +13,13 @@
     <td align="center"><a href="1-projects/devops pipelines/python/java_build_pipeline.md"><img src="images/python.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>Python Build Pipeline</b></a></td>
     <td align="center"><a href="1-projects/devops pipelines/c++/java_build_pipeline.md"><img src="images/c++.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>C++ Build Pipeline</b></a></td>
   </tr>
+
+  <tr>
+    <td align="center"><a href="topics/software_development/README.md"><b>CI/CD Tools</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/github/github.md"><b>GitHub Actions</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/gitlab/gitlab.md"><b>GitLab</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/Octopus Deploy/octopus.md"><b>Team City / Octopus Deploy</b></a></td>
+  </tr>
   
   <tr>
       <td align="center"><a href="topics/cloud/README.md"><img src="images/cloud.png" width="75px;" height="75px;" alt="Cloud"/><br/><b>Cloud Computing</b></a></td>
@@ -38,7 +45,7 @@
   
   <tr>
       <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Framework-Library</b></a></td>
-      <td align="center"><a href="topics/linux/README.md"><img src="images/logos/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>.NET</b></a></td>
+      <td align="center"><a href="topics/linux/README.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>.NET</b></a></td>
       <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>React</b></a></td>
       <td align="center"><a href="projects/5-framework-library/angular.md"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Angular</b></a></td>
   </tr>
