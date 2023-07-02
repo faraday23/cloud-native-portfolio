@@ -1,3 +1,6 @@
+  <h1>Task:</h1>
+  <p>As a DevOps Engineer, my job was to automate the application testing, pre-production staging, and production environment deployments.</p>
+
 ```shell
 #!/bin/bash
 
@@ -161,7 +164,6 @@ sudo service apache2 restart
 echo "Build and deployment complete"
 ```
 
-
 ```json
 {
   "name": "acme/my-project",
@@ -188,9 +190,7 @@ echo "Build and deployment complete"
     }
   },
   "scripts": {
-    "post-install-cmd": [
-      "My\\Custom\\Script::postInstall"
-    ]
+    "post-install-cmd": ["My\\Custom\\Script::postInstall"]
   },
   "repositories": [
     {
