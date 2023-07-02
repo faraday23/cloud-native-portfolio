@@ -15,10 +15,10 @@
   </tr>
 
   <tr>
-    <td align="center"><a href="topics/software_development/README.md"><b>CI/CD Tools</b></a></td>
-    <td align="center"><a href="projects/22-ci-cd tools/github/github.md"><b>GitHub Actions</b></a></td>
-    <td align="center"><a href="projects/22-ci-cd tools/gitlab/gitlab.md"><b>GitLab</b></a></td>
-    <td align="center"><a href="projects/22-ci-cd tools/Octopus Deploy/octopus.md"><b>Team City / Octopus Deploy</b></a></td>
+    <td align="center"><a href="topics/software_development/README.md"><img src="images/devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>CI/CD Tools</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/github/github.md"><img src="images/github_actions.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>GitHub Actions</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/gitlab/gitlab.md"><img src="images/gitlab.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>GitLab</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/Octopus Deploy/octopus.md"><img src="images/octopus.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>Team City / Octopus Deploy</b></a></td>
   </tr>
 
   <tr>
@@ -126,19 +126,19 @@
   </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Chaos Engineering</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Chaos Engineering</b></a></td>
     <td align="center"><a href="projects/16-chaos engineering/k6.md"><img src="images/k6.png" width="75px;" height="75px;" alt="Misc"/><br /><b>k6</b></a></td>
     <td align="center"><a href="#elastic"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>gremlin</b></a></td>
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Message Queueing</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Message Queueing</b></a></td>
     <td align="center"><a href="projects/18-message queueing/rabbitmq.md"><img src="images/rabbit-mq.png" width="75px;" height="75px;" alt="Misc"/><br /><b>RabbitMQ</b></a></td>
     <td align="center"><a href="projects/18-message queueing/kafka.md"><img src="images/kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Kafka</b></a></td>
    </tr>
 
    <tr>
-    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/logos/chaos_engineering.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Helm</b></a></td>
+    <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Helm</b></a></td>
     <td align="center"><a href="projects/19-helm/helm.md"><img src="images/helm.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Helm</b></a></td>
    </tr>
 
