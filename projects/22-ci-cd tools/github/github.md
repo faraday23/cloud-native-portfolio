@@ -1,34 +1,142 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DevOps Engineer Experience</title>
-</head>
-<body>
-  <h1>Situation:</h1>
-  <p>I was working as a devops engineer for a company that developed a Java application for microservices using Spring Boot and MongoDB. The application consisted of several microservices that communicated with each other through REST APIs.</p>
-  
   <h1>Task:</h1>
   <p>My task was to implement a CI/CD pipeline for the application using GitHub Actions. The pipeline had to support automated builds, tests, code quality checks, containerization, and deployments to different environments.</p>
-  
-  <h1>Action:</h1>
-  <p>I used GitHub Actions to create workflows for each microservice in the monorepo. Each workflow was triggered by a push or pull request event on the main branch. The workflow steps included the following:</p>
-  
-  <ol>
-    <li>Checkout the code from the repository.</li>
-    <li>Set up Java and Maven environments.</li>
-    <li>Build the code and run unit tests using Maven.</li>
-    <li>Run code quality checks using SonarCloud.</li>
-    <li>Build and push Docker images to Docker Hub using Docker actions.</li>
-    <li>Deploy the Docker images to Kubernetes clusters using Kubectl and Helm actions.</li>
-  </ol>
-  
-  <h1>Issue/Problem:</h1>
-  <p>One of the challenges I faced was how to create separate workflows for each microservice in the monorepo, without duplicating code or configuration. I also wanted to avoid triggering unnecessary workflows for microservices that were not changed by a commit.</p>
-  
-  <h1>Resolution:</h1>
-  <p>I solved this problem by using GitHub Actions reusable workflows. Now I reference an entire Actions workflow in another workflow, like if it were a single action. They allow me to define common steps and parameters in one workflow file, and then reference it from multiple workflow files. This way, I can avoid code duplication and maintain consistency across workflows. Reusable workflows also support path filters, so I can specify which microservices should trigger which workflows.</p>
-  
-  <h1>Result:</h1>
-  <p>As a result of my actions, I was able to implement a reliable and scalable CI/CD pipeline for the Java application using GitHub Actions. The pipeline improved the speed and quality of software delivery, as well as the collaboration between development and operations teams. The pipeline also reduced manual errors and ensured consistency across environments by using Docker and Kubernetes.</p>
-</body>
-</html>
+
+```yaml
+name: Java CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_and_scan:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: ['11', '12', '13', '14']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'adopt'
+
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Set up Maven
+        run: |
+          echo "MAVEN_OPTS='-Xmx3072m'" > $GITHUB_ENV
+          echo "MAVEN_USER_HOME=$(pwd)/.m2" > $GITHUB_ENV
+
+      - name: Clean install with Maven
+        run: mvn -B clean install --file pom.xml
+
+      - name: Run Checkstyle
+        if: contains(github.event.head_commit.message, '[ci java]')
+        run: mvn checkstyle:checkstyle
+
+      - name: SonarCloud Scan
+        if: contains(github.event.head_commit.message, '[ci java]')
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Login to DockerHub
+        if: github.repository == 'YOUR_USERNAME/YOUR_REPOSITORY'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Scan image
+        run: |
+          docker pull ${{ steps.docker_build.outputs.docker_image_digest }}
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy ${ steps.docker_build.outputs.docker_image_digest }}
+        id: scan
+        continue-on-error: true
+
+      - name: Fail on vulnerability detected
+        run: exit 1
+        if: steps.scan.outcome == 'failure'
+
+  helm_and_argocd_deploy:
+    needs: build_and_scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: 'v3.7.0'
+
+      - name: Build Helm chart
+        run: |
+          echo "appVersion: ${GITHUB_SHA}" >> ./helm/Chart.yaml
+          helm package ./helm
+
+      - name: Tag Helm chart
+        run: |
+          helm chart save my-chart:${GITHUB_SHA} my-chart/
+
+      - name: Push Helm chart
+        run: |
+          echo ${CR_PAT} | helm registry login ghcr.io -u USERNAME --password-stdin
+          helm chart push my-chart:${GITHUB_SHA}
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+
+      - name: ArgoCD Login
+        run: |
+          argocd login argocd.example.com --username ${{ secrets.ARGOCD_USER }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
+
+      - name: Update ArgoCD App
+        run: |
+          argocd app set MY_APP -p image.tag=${{ github.sha }}
+
+      - name: Sync ArgoCD App
+        run: |
+          argocd app sync MY_APP
+
+      - name: Check ArgoCD App Health
+        id: health_check
+        run: |
+          if ! argocd app health MY_APP --timeout 60s; then
+            echo "Deployment failed."
+            exit 1
+          fi
+
+      - name: Rollback ArgoCD App
+        if: failure() && steps.health_check.outcome == 'failure'
+        run: |
+          argocd app rollback MY_APP
+
+      - name: Capture Failure Events
+        if: failure() && steps.health_check.outcome == 'failure'
+        run: |
+          argocd app events MY_APP
+```
