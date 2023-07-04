@@ -9,53 +9,6 @@
   <h1>Situation</h1>
   <p>I was hired as a devops engineer for a company that needed to automate the initial configuration of servers for various projects and environments. The company had a large number of servers that required consistent and repeatable configuration across different operating systems and platforms. The company also wanted to reduce the manual effort and human error involved in configuring servers.</p>
 
-  <h1>Task</h1>
-  <p>My task was to use Ansible to automate the initial configuration of servers. Ansible is an open-source tool that uses YAML-based playbooks to define the desired state of servers and execute tasks to achieve that state. Ansible also uses an agentless architecture that relies on SSH for communication and does not require any additional software installation on the servers. I had to develop playbooks to set up user accounts, install necessary packages, configure SSH access, and perform basic system configurations on the servers.</p>
-
-  <h1>Action</h1>
-  <ol>
-    <li>I installed Ansible on my local machine and configured it to use SSH keys for authentication. I also created an inventory file that listed the hostnames or IP addresses of the servers that I wanted to configure, grouped by project and environment. I also created a group_vars directory that contained variables that were common to each group of servers, such as user names, passwords, package names, etc.</li>
-    <li>I created a playbook for setting up user accounts on the servers. The playbook consisted of tasks that used the user module to create user accounts with specified names, passwords, groups, home directories, etc. The playbook also used the authorized_key module to add SSH public keys to the user accounts for passwordless login. The playbook also used handlers and notify directives to restart the SSH service whenever a user account was modified.</li>
-    <li>I created another playbook for installing necessary packages on the servers. The playbook consisted of tasks that used the package module to install packages with specified names and states (present or absent) on the servers. The playbook also used conditionals and facts to check the operating system and platform of each server and install packages accordingly. The playbook also used loops and with_items directives to iterate over a list of packages and install them in one task.</li>
-    <li>I created another playbook for configuring SSH access on the servers. The playbook consisted of tasks that used the lineinfile module to modify the SSH configuration file (/etc/ssh/sshd_config) on the servers. The playbook also used variables and templates to customize the SSH configuration file based on different parameters, such as port number, protocol version, login banner, etc. The playbook also used handlers and notify directives to restart the SSH service whenever the SSH configuration file was modified.</li>
-    <li>I created another playbook for performing basic system configurations on the servers. The playbook consisted of tasks that used various modules to perform system tasks, such as setting hostname, timezone, locale, firewall rules, cron jobs, etc. The playbook also used conditionals and facts to check the operating system and platform of each server and perform system configurations accordingly. The playbook also used loops and with_items directives to iterate over a list of system tasks and perform them in one task.</li>
-  </ol>
-
-  <h1>Issue/Problem</h1>
-  <p>One of the issues or problems that I faced during the task was how to handle errors or failures that occurred during the execution of playbooks. Errors or failures can occur due to various reasons, such as network issues, incorrect syntax, missing dependencies, insufficient permissions, etc. For example, if a package
-
- installation failed due to a network issue, the playbook would stop running and leave the server in an inconsistent state.</p>
-
-  <h1>Resolution</h1>
-  <p>To resolve this issue or problem, I decided to use error handling techniques in Ansible to handle errors or failures gracefully and ensure that the playbooks continued running or exited cleanly. Error handling techniques in Ansible include:</p>
-  <ul>
-    <li>Using <b>ignore_errors</b> directive to ignore errors or failures for specific tasks and continue running the playbook.</li>
-    <li>Using <b>failed_when</b> directive to define custom failure conditions for specific tasks based on their output or return values.</li>
-    <li>Using <b>register</b> directive to capture the output or return values of specific tasks and use them in subsequent tasks or conditionals.</li>
-    <li>Using <b>block</b>, <b>rescue</b>, and <b>always</b> directives to group tasks into blocks and define error handling actions for each block.</li>
-  </ul>
-  <p>Using error handling techniques in Ansible has several advantages:</p>
-  <ul>
-    <li>It prevents playbooks from stopping abruptly due to errors or failures and leaving servers in an inconsistent state.</li>
-    <li>It allows playbooks to handle errors or failures in a customized way based on different scenarios and requirements.</li>
-    <li>It improves the reliability and robustness of playbooks and ensures that they achieve the desired state of servers.</li>
-  </ul>
-  <p>To implement error handling techniques in Ansible, I followed these steps:</p>
-  <ol>
-    <li>I added <b>ignore_errors: yes</b> to tasks that were not critical for the configuration of servers and could be ignored if they failed. For example, I added <b>ignore_errors: yes</b> to the task that set the hostname of the server, as it was not essential for the functionality of the server.</li>
-    <li>I added <b>failed_when: condition</b> to tasks that had custom failure conditions based on their output or return values. For example, I added <b>failed_when: result.rc != 0 and 'already installed' not in result.stdout</b> to the task that installed packages on the server, as it should fail only if the return code was not zero and the output did not contain the phrase 'already installed'.</li>
-    <li>I added <b>register: variable</b> to tasks that had output or return values that I wanted to use in subsequent tasks or conditionals. For example, I added <b>register: ssh_config_result</b> to the task that modified the SSH configuration file on the server, as I wanted to use its output in a subsequent task that checked if the SSH service needed to be restarted.</li>
-    <li>I added <b>block</b>, <b>rescue</b>, and <b>always</b> directives to group tasks into blocks and define error handling actions for each block. For example, I added <b>block</b>, <b>rescue</b>, and <b>always</b> directives to group the tasks that performed system configurations on the server and define error handling actions such as logging the error message, sending an email notification, or reverting the changes.</li>
-  </ol>
-
-  <h1>Result</h1>
-  <p>As a result of my actions, I was able to use Ansible to automate the initial configuration of servers for various projects and environments.
-
- I was able to develop playbooks to set up user accounts, install necessary packages, configure SSH access, and perform basic system configurations on the servers. I was also able to use error handling techniques in Ansible to handle errors or failures gracefully and ensure that the playbooks continued running or exited cleanly. I received positive feedback from my supervisor and client for my work on the task.</p>
-</body>
-
-</html>
-
 ---
 
 
