@@ -9,6 +9,7 @@
 
   <h2>Step 1:</h2>
   <p>Configure the Packer template file with the necessary variables and builders:</p>
+
 ```json
 {
 "variables": {
@@ -49,6 +50,7 @@
 
   <h2>Step 2:</h2>
   <p>Configure the user data script in PowerShell format:</p>
+
 ```powershell
 write-output "Running User Data Script"
 write-host "(host) Running User Data Script"
@@ -91,6 +93,7 @@ shutdown /r /t 5 /c "Rebooting for final WinRM configuration"
 
   <h2>Step 3:</h2>
   <p>Add provisioners to the Packer template to run PowerShell scripts for Windows updates, .NET framework installation, and setting system settings:</p>
+
 ```json
 "provisioners": [
 {
@@ -122,6 +125,7 @@ powershell",
 
   <h2>Step 4:</h2>
   <p>Create a GitHub Actions workflow file to trigger an AMI rebuild with code changes:</p>
+  
 ```yaml
 name: 'Packer AMI Builder'
 on:
