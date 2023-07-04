@@ -5,44 +5,44 @@
 </head>
 <body>
   <h1>Packer AMI Configuration</h1>
-<p>My task was to automate the process of creating and provisioning Windows Server instances while ensuring that the servers were set up in a consistent manner and properly configured to support our legacy .NET applications.</p>
+    <p>My task was to automate the process of creating and provisioning Windows Server instances while ensuring that the servers were set up in a consistent manner and properly configured to support our legacy .NET applications.</p>
 
   <h2>Step 1:</h2>
   <p>Configure the Packer template file with the necessary variables and builders:</p>
   <pre><code class="language-json">
-{
-  "variables": {
-    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
-    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "region": "us-west-2",
-    "ami_name": "packer-example-{{timestamp}}"
-  },
-  "builders": [
     {
-      "type": "amazon-ebs",
-      "region": "{{user `region`}}",
-      "source_ami_filter": {
-        "filters": {
-          "virtualization-type": "hvm",
-          "name": "Windows_Server-2016-English-Full-Base-*",
-          "root-device-type": "ebs"
+    "variables": {
+        "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "region": "us-west-2",
+        "ami_name": "packer-example-{{timestamp}}"
+    },
+    "builders": [
+        {
+        "type": "amazon-ebs",
+        "region": "{{user `region`}}",
+        "source_ami_filter": {
+            "filters": {
+            "virtualization-type": "hvm",
+            "name": "Windows_Server-2016-English-Full-Base-*",
+            "root-device-type": "ebs"
+            },
+            "owners": ["amazon"],
+            "most_recent": true
         },
-        "owners": ["amazon"],
-        "most_recent": true
-      },
-      "instance_type": "t2.medium",
-      "ssh_username": "Administrator",
-      "ami_name": "{{user `ami_name`}}",
-      "user_data_file": "./bootstrap_win.txt",
-      "communicator": "winrm",
-      "winrm_use_ssl": true,
-      "winrm_insecure": true,
-      "winrm_timeout": "10m",
-      "winrm_username": "Administrator"
+        "instance_type": "t2.medium",
+        "ssh_username": "Administrator",
+        "ami_name": "{{user `ami_name`}}",
+        "user_data_file": "./bootstrap_win.txt",
+        "communicator": "winrm",
+        "winrm_use_ssl": true,
+        "winrm_insecure": true,
+        "winrm_timeout": "10m",
+        "winrm_username": "Administrator"
+        }
+    ]
     }
-  ]
-}
-  </code></pre>
+</code></pre>
 
   <h3>Note:</h3>
   <p>We require a <strong>bootstrap_win.txt</strong> file to configure WinRM.</p>
@@ -87,7 +87,7 @@
     net localgroup "Remote Desktop Users" packer /add
 
     shutdown /r /t 5 /c "Rebooting for final WinRM configuration"
-    </code></pre>
+</code></pre>
 
   <h2>Step 3:</h2>
   <p>Add provisioners to the Packer template to run PowerShell scripts for Windows updates, .NET framework installation, and setting system settings:</p>
@@ -116,6 +116,7 @@
     "restart_timeout": "15m"
     }
     ]
+
 </code></pre>
 
   <h3>Note:</h3>
@@ -152,6 +153,7 @@
         - name: Run Packer
         run: |
             packer build windows-ami.json
+
 </code></pre>
 
   <h3>Note:</h3>
