@@ -38,9 +38,9 @@
 
   <tr>
     <td align="center"><a href="topics/software_development/README.md"><img src="images/programming.png" width="75px;" height="75px;" alt="Scripting"/><br /><b>Scripting</b></a></td>
-    <td align="center"><a href="projects/4-scripting/python/python.md"><img src="images/python.png" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
-    <td align="center"><a href="projects/4-scripting/bash/bash.md"><img src="images/bash.png" width="75px;" height="75px;" alt="Powershell"/><br /><b>Bash</b></a></td>
-    <td align="center"><a href="projects/4-scripting/powershell/powershell.md"><img src="images/powershell.png" width="75px;" height="75px;" alt="perl"/><br /><b>Powershell</b></a></td>
+    <td align="center"><a href="projects/4-scripting/python"><img src="images/python.png" width="75px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
+    <td align="center"><a href="projects/4-scripting/bash"><img src="images/bash.png" width="75px;" height="75px;" alt="Powershell"/><br /><b>Bash</b></a></td>
+    <td align="center"><a href="projects/4-scripting/powershell"><img src="images/powershell.png" width="75px;" height="75px;" alt="perl"/><br /><b>Powershell</b></a></td>
   </tr>
   
   <tr>
