@@ -105,9 +105,7 @@ shutdown /r /t 5 /c "Rebooting for final WinRM configuration"
     ]
 },
 {
-    "type": "
-
-powershell",
+    "type": "powershell",
 "scripts": [
 "./scripts/windows-updates.ps1",
 "./scripts/dotnet-framework.ps1",
@@ -125,7 +123,7 @@ powershell",
 
   <h2>Step 4:</h2>
   <p>Create a GitHub Actions workflow file to trigger an AMI rebuild with code changes:</p>
-  
+
 ```yaml
 name: 'Packer AMI Builder'
 on:
