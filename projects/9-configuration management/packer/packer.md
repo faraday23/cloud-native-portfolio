@@ -9,7 +9,7 @@
 
   <h2>Step 1:</h2>
   <p>Configure the Packer template file with the necessary variables and builders:</p>
-  <pre><code class="language-json">
+    ```json
     {
     "variables": {
         "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
@@ -42,14 +42,14 @@
         }
     ]
     }
-</code></pre>
+    ```
 
   <h3>Note:</h3>
   <p>We require a <strong>bootstrap_win.txt</strong> file to configure WinRM.</p>
 
   <h2>Step 2:</h2>
   <p>Configure the user data script in PowerShell format:</p>
-  <pre><code class="language-powershell">
+    ```powershell
     write-output "Running User Data Script"
     write-host "(host) Running User Data Script"
 
@@ -87,11 +87,11 @@
     net localgroup "Remote Desktop Users" packer /add
 
     shutdown /r /t 5 /c "Rebooting for final WinRM configuration"
-</code></pre>
+    ```
 
   <h2>Step 3:</h2>
   <p>Add provisioners to the Packer template to run PowerShell scripts for Windows updates, .NET framework installation, and setting system settings:</p>
-  <pre><code class="language-json">
+    ```json
     "provisioners": [
     {
         "type": "powershell",
@@ -116,15 +116,13 @@
     "restart_timeout": "15m"
     }
     ]
-
-</code></pre>
-
+    ```
   <h3>Note:</h3>
   <p>Adjust the script paths accordingly and provide your own system settings script.</p>
 
   <h2>Step 4:</h2>
   <p>Create a GitHub Actions workflow file to trigger an AMI rebuild with code changes:</p>
-  <pre><code class="language-yml">
+  ```yaml
     name: 'Packer AMI Builder'
     on:
     push:
@@ -153,8 +151,7 @@
         - name: Run Packer
         run: |
             packer build windows-ami.json
-
-</code></pre>
+```
 
   <h3>Note:</h3>
   <p>Make sure to configure the necessary secrets for AWS access.</p>
