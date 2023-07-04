@@ -1,138 +1,206 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
-  <title>DevOps Engineer Experience</title>
-</head>
-<body>
-  <h1>Situation:</h1>
-  <p>I was working as a devops engineer for a company that developed a .NET application for microservices using ASP.NET Core and Entity Framework Core. The application consisted of a web front end and a database that contained the business logic and data.</p>
-  
-  <h1>Task:</h1>
   <p>My task was to implement a continuous delivery pipeline for the application using Octopus Deploy and TeamCity. The pipeline had to support automated builds, deployments to different environments, and sign offs for production deployments.</p>
-  
-  <h1>Action:</h1>
-  <p>I used TeamCity to build the code and run unit tests, and I used Octopus Deploy to deploy and promote releases. I configured TeamCity to trigger a build whenever there was a code change in Git, and to push the build artifacts to Octopus Deploy. I also configured Octopus Deploy to create a release from the artifacts and deploy it to the dev environment automatically. For the test and production environments, I set up some rules in Octopus Deploy to control who can deploy and when. I also added some steps in Octopus Deploy to perform database migrations, run smoke tests, and send email notifications.</p>
-  
-  <h1>Issue/Problem:</h1>
-  <p>One of the challenges I faced was how to handle configuration settings for different environments. The application had some settings that varied depending on the environment, such as connection strings, API keys, and feature flags. I did not want to hardcode these settings in the code or store them in plain text files.</p>
-  
-  <h1>Resolution:</h1>
-  <p>I solved this problem by using variables in Octopus Deploy. Variables are placeholders that can be replaced with different values depending on the environment or other conditions. I defined variables for each configuration setting in Octopus Deploy, and assigned them different values for each environment. I also used variable scoping to limit the scope of variables to specific environments or steps. Then, I used variable substitution features in Octopus Deploy to replace the variables with their values in the configuration files during deployment.</p>
-  
-  <h1>Result:</h1>
-  <p>As a result of my actions, I was able to implement a reliable and repeatable continuous delivery pipeline for the .NET application using Octopus Deploy and TeamCity. The pipeline improved the speed and quality of software delivery, as well as the collaboration between development and operations teams. The pipeline also reduced manual errors and ensured consistency across environments by using variables for configuration settings.</p>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Configuring Continuous Delivery Pipeline with Ansible and Terraform</title>
 </head>
 <body>
-  <h1>Step 1: Install and Set Up Configuration Management Tools</h1>
-  <ol>
-    <li><strong>Install Ansible and Terraform</strong> on your deployment server or a dedicated machine.</li>
-    <li><strong>Ensure</strong> that the tools are properly configured and accessible from the command line.</li>
-  </ol>
-  
-  <h1>Step 2: Define Infrastructure as Code with Terraform</h1>
-  <ol>
-    <li><strong>Create</strong> a Terraform configuration file (e.g., <code>main.tf</code>) to define the infrastructure needed for the deployment pipeline.</li>
-    <li><strong>Specify</strong> the required cloud resources, such as virtual machines, networks, security groups, and any other infrastructure components.</li>
-    <li><strong>Define</strong> the necessary variables in a separate variables file (e.g., <code>variables.tfvars</code>) to make the configuration flexible and reusable.</li>
-    <li><strong>Run</strong> <code>terraform init</code> to initialize the Terraform project and download any required plugins.</li>
-  </ol>
-  
-  <h1>Step 3: Provision Deployment Server(s) with Ansible</h1>
-  <ol>
-    <li><strong>Create</strong> an Ansible playbook (e.g., <code>provision.yml</code>) to automate the provisioning of the deployment server(s).</li>
-    <li><strong>Define</strong> a host inventory file (e.g., <code>hosts.ini</code>) containing the target server(s) for deployment.</li>
-    <li><strong>Specify</strong> the necessary tasks in the playbook to install dependencies, configure networking, and set up any required software (e.g., TeamCity and Octopus Deploy).</li>
-    <li><strong>Run</strong> the Ansible playbook using the command <code>ansible-playbook -i hosts.ini provision.yml</code> to provision the deployment server(s).</li>
-  </ol>
-  
-  <h1>Step 4: Configure TeamCity with Ansible</h1>
-  <ol>
-    <li><strong>Create</strong> an Ansible playbook (e.g., <code>teamcity.yml</code>) to automate the configuration of TeamCity.</li>
-    <li><strong>Define</strong> the required tasks to install and configure TeamCity, including setting up the project, build configurations, and VCS integration with Git.</li>
-    <li><strong>Utilize</strong> Ansible's modules to manage configurations, install plugins, and handle any necessary environment-specific settings.</li>
-    <li><strong>Run</strong> the Ansible playbook against the deployment server(s) to configure TeamCity using the command <code>ansible-playbook -i hosts.ini teamcity.yml</code>.</li>
-  </ol>
-  
-  <h1>Step 5: Configure Octopus Deploy with Ansible</h1>
-  <ol>
-    <li><strong>Create</strong> an Ansible playbook (e.g., <code>octopus.yml</code>) to automate the configuration of Octopus Deploy.</li>
-    <li><strong>Define</strong> tasks to install and configure Octopus Deploy, including creating projects, environments, and deployment processes.</li>
-    <li><strong>Utilize</strong> Ansible's modules to manage configurations, configure users and permissions, and handle any necessary environment-specific settings.</li>
-    <li><strong>Run</strong> the Ansible playbook against the deployment server(s) to configure Octopus Deploy using the command <code>ansible-playbook -i hosts.ini octopus.yml</code>.</li>
-  </ol>
-  
-  <h1>Step 6: Set Up Continuous Integration and Delivery Pipeline</h1>
-  <ol>
-    <li><strong>Configure</strong> TeamCity to trigger builds on code changes and run unit tests using the TeamCity web interface or TeamCity's REST API.</li>
-    <li><strong>Set up</strong> Octopus Deploy to automatically create releases and deploy them to the dev environment upon successful builds.</li>
-    <li><strong>Define</strong> the necessary deployment steps, rules, and permissions for the test and production environments in Octopus Deploy.</li>
-    <li><strong>Customize</strong> the deployment processes in Octopus Deploy to include database migrations, smoke tests, and notifications.</li>
-  </ol>
-  
-  <h1>Step 7: Test and Iterate</h1>
-  <ol>
-    <li><strong>Test</strong> the continuous delivery pipeline by making code changes, observing the automated build and deployment processes.</li>
-    <li><strong>Iterate</strong> and refine the pipeline as necessary, making adjustments based on feedback and real-world usage.</li>
-    <li><strong>Use</strong> Ansible and Terraform to make any necessary updates or modifications to the infrastructure or deployment configurations.</li>
-  </ol>
-  
-  <p>By following these steps, you can configure the continuous delivery pipeline using Ansible and Terraform, ensuring consistency and reproducibility in your infrastructure and deployment processes. Remember to customize the configurations and playbooks according to your specific needs and requirements.</p>
-</body>
-</html>
+  <h1>Deployment Configuration</h1>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>How to Configure the Continuous Delivery Pipeline Using Configuration Management Tools</title>
-</head>
-<body>
-  <h1>How to Configure the Continuous Delivery Pipeline Using Configuration Management Tools</h1>
-  <p>Continuous delivery is an approach of producing software in such a manner that the software can be readily/continuously released whenever required. It enables the code to be in a deployable state, always & on demand. It diminishes the risk involved in delivering the changes as it uses the method of deployment in small repetitive incremental cycles and thus reducing the time & expense involved.</p>
-  <p>However, continuous delivery also poses some challenges, such as managing complex and dynamic infrastructure, ensuring consistency and reliability across environments, and coordinating multiple teams and tools. This is where configuration management tools come in handy. Configuration management tools allow us to define, automate, and orchestrate the infrastructure and software components needed for the deployment pipeline.</p>
-  
-  <h2>Prerequisites</h2>
-  <p>Before we start, we need to install and set up Ansible and Terraform on our deployment server or a dedicated machine. We also need to have access to a cloud provider account where we will provision our infrastructure resources.</p>
-  <p>To install Ansible, follow the instructions <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">here</a>.</p>
-  <p>To install Terraform, follow the instructions <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">here</a>.</p>
-  <p>To verify that the tools are properly configured and accessible from the command line, run the following commands:</p>
-  <pre><code>ansible --version
-terraform --version
+  <h2>Step 1:</h2>
+  <p>In TeamCity, create a project for your application and add a build configuration. You can use the TeamCity Git plugin to connect to your Git repository and set up a VCS trigger to start a build whenever there is a code change. You can also use the TeamCity .NET plugin to run MSBuild and NUnit tasks to build the code and run unit tests. For example, you can have the following build steps:</p>
+  <pre><code class="language-xml">
+&lt;build&gt;
+  &lt;build-runners&gt;
+    &lt;runner name="MSBuild" type="MSBuild"&gt;
+      &lt;parameters&gt;
+        &lt;param name="build-file-path" value="MyApp.sln" /&gt;
+        &lt;param name="targets" value="Clean;Build" /&gt;
+        &lt;param name="toolsVersion" value="v4.0" /&gt;
+      &lt;/parameters&gt;
+    &lt;/runner&gt;
+    &lt;runner name="NUnit" type="NUnit"&gt;
+      &lt;parameters&gt;
+        &lt;param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" /&gt;
+        &lt;param name="dotNetCoverage.nunit.executable" value="%teamcity.tool.NUnit.Console.DEFAULT%\nunit3-console.exe" /&gt;
+        &lt;param name="dotNetCoverage.nunit.path" value="**\bin\**\*.Tests.dll" /&gt;
+      &lt;/parameters&gt;
+    &lt;/runner&gt;
+  &lt;/build-runners&gt;
+&lt;/build&gt;
+  </code></pre>
+
+  <h2>Step 2:</h2>
+  <p>In TeamCity, add a build feature to push the build artifacts to Octopus Deploy. You can use the TeamCity Octopus Deploy plugin to connect to your Octopus Deploy server and specify the package ID, version, and path. You can also use the TeamCity parameters to dynamically set the package version based on the build number. For example, you can have the following build feature:</p>
+  <pre><code class="language-xml">
+&lt;build-features&gt;
+  &lt;feature type="octopus.push.package"&gt;
+    &lt;parameters&gt;
+      &lt;param name="octopus_host" value="https://octopus.example.com" /&gt;
+      &lt;param name="octopus_apikey" value="%octopus_apikey%" /&gt;
+      &lt;param name="package_id" value="MyApp" /&gt;
+      &lt;param name="package_version" value="%build.number%" /&gt;
+      &lt;param name="package_path" value="%teamcity.build.checkoutDir%\MyApp\bin\Release\*.zip" /&gt;
+    &lt;/parameters&gt;
+  &lt;/feature&gt;
+&lt;/build-features&gt;
+  </code></pre>
+
+  <h2>Step 3:</h2>
+  <p>In Octopus Deploy, create a project for your application and add a lifecycle. You can use the Octopus Deploy lifecycles to define the stages and environments for your deployment pipeline. You can also use the Octopus Deploy retention policies to control how long to keep the releases and deployments. For example, you can have the following lifecycle:</p>
+  <pre><code class="language-json">
+{
+  "Id": "Lifecycles-1",
+  "Name": "MyApp Lifecycle",
+  "Description": "",
+  "ReleaseRetentionPolicy": {
+    "Unit": "Items",
+    "QuantityToKeep": 10,
+    "ShouldKeepForever": false
+  },
+  "TentacleRetentionPolicy": {
+    "Unit": "Days",
+    "QuantityToKeep": 30,
+    "ShouldKeepForever": false
+  },
+  "Phases": [
+    {
+      "Id": "Phase-1",
+      "Name": "Dev",
+      "MinimumEnvironmentsBeforePromotion": 0,
+      "AutomaticDeploymentTargets": [
+        "Environments-1"
+      ],
+      "OptionalDeploymentTargets": [],
+      "IsOptionalPhase": false
+    },
+    {
+      "Id": "Phase-2",
+      "Name": "Test",
+      "MinimumEnvironmentsBeforePromotion": 1,
+      "AutomaticDeploymentTargets": [],
+      "OptionalDeploymentTargets": [
+        "Environments-2"
+      ],
+      "IsOptionalPhase": false
+    },
+    {
+      "Id": "Phase-3",
+      "Name": "Production",
+      "MinimumEnvironmentsBeforePromotion": 1,
+      "AutomaticDeploymentTargets": [],
+      "OptionalDeploymentTargets": [
+        "Environments-3"
+      ],
+      "IsOptionalPhase": false
+    }
+  ]
+}
+  </code></pre>
+
+  <h2>Step 4:</h2>
+  <p>In Octopus Deploy, add a deployment process for your project. You can use the Octopus Deploy steps to define the actions and scripts for your deployment. You can also use the Octopus Deploy variables and scopes to customize the settings and values for different environments. For example, you can have the following steps:</p>
+  <ol>
+    <li>
+      <p>A step that deploys the package to the target machines using the built-in <code>Deploy a package</code> step. You can specify the package ID, the target roles, and the extraction directory. You can also use the custom deployment scripts to perform any additional actions before or after the deployment. For example, you can have the following script to set the app settings in the web.config file:</p>
+      <pre><code class="language-powershell">
+$webConfig = "$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']\MyApp\web.config"
+$appSettings = [xml](Get-Content $webConfig).SelectSingleNode("//appSettings")
+foreach ($variable in $OctopusParameters.Keys | Where-Object { $_ -like "AppSettings.*" }) {
+  $key = $variable -replace "AppSettings.", ""
+  $value = $OctopusParameters[$variable]
+  $appSetting = $appSettings.SelectSingleNode("//add[@key='$key']")
+  if ($appSetting -eq $null) {
+    $appSetting = $appSettings.OwnerDocument.CreateElement("add")
+    $appSetting.SetAttribute("key", $key)
+    $appSetting.SetAttribute("value", $value)
+    $appSettings.AppendChild($appSetting)
+  }
+  else {
+    $appSetting.SetAttribute("value", $value)
+  }
+}
+$appSettings.OwnerDocument.Save($webConfig)
+      </code></pre>
+    </li>
+    <li>
+      <p>A step that performs database migrations using the <code>Run a script</code> step. You can use the Octopus Deploy database tools to connect to your database and run the migration scripts. You can also use the Octopus Deploy variables
+
+to specify the connection string and the script path. For example, you can have the following script to run the DbUp tool:</p>
+<pre><code class="language-powershell">
+Add-Type -Path "$env:TEMP\Octopus.Features.DatabaseMigrations.DbUp.dll"
+$connectionString = $OctopusParameters["Database.ConnectionString"]
+$scriptPath = "$OctopusParameters['Octopus.Action.Package.CustomInstallationDirectory']\MyApp\Database\Scripts"
+$upgrader = [DbUp.DeployChanges]::To
+.SqlDatabase($connectionString)
+  .WithScriptsFromFileSystem($scriptPath)
+.LogToConsole()
+.Build()
+$result = $upgrader.PerformUpgrade()
+if (-not $result.Successful) {
+  throw $result.Error
+}
+      </code></pre>
+    </li>
+    <li>
+      <p>A step that runs smoke tests using the <code>Run a script</code> step. You can use any testing framework or tool to verify that your application is working as expected after the deployment. You can also use the Octopus Deploy variables to specify the test URL and the test results path. For example, you can have the following script to run the Selenium WebDriver tool:</p>
+      <pre><code class="language-powershell">
+Add-Type -Path "$env:TEMP\Octopus.Features.SeleniumWebDriver.Selenium.WebDriver.dll"
+Add-Type -Path "$env:TEMP\Octopus.Features.SeleniumWebDriver.Selenium.WebDriver.ChromeDriver.dll"
+$testUrl = $OctopusParameters["Test.Url"]
+$testResultsPath = "$env:TEMP\test-results.xml"
+$driver = New-Object OpenQA.Selenium.Chrome.ChromeDriver
+$driver.Navigate().GoToUrl($testUrl)
+$title = $driver.Title
+if ($title -eq "MyApp") {
+Write-Host "Test passed"
+$testResult = @"
+&lt;test-results&gt;
+  &lt;test-case name="Smoke test" result="Success" /&gt;
+&lt;/test-results&gt;
+"@
+}
+else {
+  Write-Host "Test failed"
+  $testResult = @"
+&lt;test-results&gt;
+  &lt;test-case name="Smoke test" result="Failure"&gt;
+    &lt;failure&gt;
+      &lt;message&gt;Expected title to be 'MyApp' but was '$title'&lt;/message&gt;
+&lt;/failure&gt;
+&lt;/test-case&gt;
+&lt;/test-results&gt;
+"@
+}
+$driver.Quit()
+Set-Content -Path $testResultsPath -Value $testResult
+New-OctopusArtifact -Path $testResultsPath -Name "test-results.xml"
 </code></pre>
-  
-  <h2>Infrastructure as Code with Terraform</h2>
-  <ol>
-    <li>Create a Terraform configuration file (e.g., <code>main.tf</code>) to define the infrastructure needed for the deployment pipeline. In this example, we will create a simple configuration that provisions a virtual machine, a network, a security group, and an SSH key pair on AWS.</li>
-    <li>Specify the required variables in a separate variables file (e.g., <code>variables.tfvars</code>) to make the configuration flexible and reusable.</li>
-    <li>Run <code>terraform init</code> to initialize the Terraform project and download any required plugins.</li>
-    <li>Run <code>terraform apply -var-file=variables.tfvars</code> to apply the configuration and create the infrastructure resources.</li>
+</li>
+<li>
+<p>A step that sends email notifications using the built-in <code>Email</code> step. You can use the Octopus Deploy email templates to customize the subject and body of the email. You can also use the Octopus Deploy variables to specify the recipients, the sender, and the attachments. For example, you can have the following email template:</p>
+<pre><code class="language-html">
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;The #{Octopus.Project.Name} project has been deployed to the #{Octopus.Environment.Name} environment.&lt;/p&gt;
+&lt;p&gt;You can view the deployment details here: #{Octopus.Web.DeploymentLink}&lt;/p&gt;
+&lt;p&gt;Please review the deployment and sign off if you are satisfied.&lt;/p&gt;
+&lt;p&gt;Regards,&lt;/p&gt;
+&lt;p&gt;#{Octopus.Deployment.CreatedBy.DisplayName}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+
   </ol>
-  
-  <h2>Provisioning Deployment Server(s) with Ansible</h2>
-  <ol>
-    <li>Create an Ansible playbook (e.g., <code>provision.yml</code>) to automate the provisioning of the deployment server(s).</li>
-    <li>Define a host inventory file (e.g., <code>hosts.ini</code>) containing the target server(s) for deployment.</li>
-    <li>Run <code>ansible-playbook -i hosts.ini provision.yml</code> to run the Ansible playbook and provision the deployment server(s).</li>
-  </ol>
-  
-  <h2>Conclusion</h2>
-  <p>We have successfully configured the continuous delivery pipeline using configuration management tools like Ansible and Terraform. We have created a virtual machine on AWS using Terraform, and installed TeamCity and Octopus Deploy on it using Ansible. These tools will help us automate and simplify the build, test, and deployment processes for our software.</p>
-  <p>Some tips or best practices for continuous delivery are:</p>
+
+  <h2>Step 5:</h2>
+  <p>In Octopus Deploy, add some rules and permissions to control who can deploy and when. You can use the Octopus Deploy environments, roles, teams, and users to define the scope and access level for your deployments. You can also use the Octopus Deploy manual interventions, approvals, and schedules to add some checkpoints and constraints for your deployments. For example, you can have the following rules:</p>
   <ul>
-    <li>Use version control for all your code and configuration files.</li>
-    <li>Write automated tests for your code and run them frequently.</li>
-    <li>Use code review and code quality tools to ensure code quality and consistency.</li>
-    <li>Use feature flags or branch by abstraction to enable or disable features without redeploying.</li>
-    <li>Monitor your pipeline performance and feedback loops.</li>
-    <li>Continuously improve your pipeline based on feedback and metrics.</li>
+    <li>A rule that allows only the developers team to deploy to the dev environment at any time.</li>
+    <li>A rule that allows only the testers team to deploy to the test environment after a manual intervention from a developer.</li>
+    <li>A rule that allows only the managers team to deploy to the production environment after an approval from a tester and a schedule that limits the deployment window to weekdays from 9 AM to 5 PM.</li>
   </ul>
-  <p>I hope you found this helpful. If you have any questions or feedback, please let me know.😊</p>
 </body>
 </html>
