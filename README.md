@@ -82,7 +82,7 @@
 
   <tr>
       <td align="center"><a href="topics/Monitoring/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Monitoring"/><br /><b>Monitoring</b></a></td>
-      <td align="center"><a href="projects/10-monitoring/prometheus/star/star.md"><img src="images/prometheus.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Prometheus</b></a></td>
+      <td align="center"><a href="projects/10-monitoring/prometheus/prometheus.md"><img src="images/prometheus.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Prometheus</b></a></td>
       <td align="center"><a href="projects/10-monitoring/grafana/grafana.md"><img src="images/logos/grafana.png" width="70px;" height="70px;" alt="Grafana"/><br /><b>Grafana</b></a></td>
       <td align="center"><a href="projects/10-monitoring/datadog/datadog.md"><img src="images/datadog.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Datadog</b></a></td>
       <td align="center"><a href="projects/10-monitoring/els/elk.md""><img src="images/elasticsearch.png" width="80px;" height="80px;" alt="DataDog"/><br /><b></b>Elastic Search</a></td>
