@@ -1,250 +1,230 @@
-<!DOCTYPE html>
-<html>
+ <p>As a DevOps Engineer, my job was to automate the application testing, pre-production staging, and production environment deployments.</p>
 
-<head>
-  <title>CI/CD Pipeline</title>
-</head>
+```yaml
+name: CI/CD Pipeline
 
-<body>
-  <h1>As a DevOps Engineer, my job was to automate the application testing, pre-production staging, and production environment deployments.</h1>
+on: [push]
 
-  <h2>name: CI/CD Pipeline</h2>
+jobs:
 
-  <h3>on: [push]</h3>
+build-test-deploy:
+  # specify the runner machine to use
+  runs-on: ubuntu-latest
+  # specify the steps to run
 
-  <h3>jobs:</h3>
+steps:
+  # checkout the code from the repository
+  - name: Checkout code
+    uses: actions/checkout@v2
 
-  <h4>build-test-deploy:</h4>
+  # setup dotnet environment on the runner machine
+  - name: Setup dotnet
+    uses: actions/setup-dotnet@v1
+    with:
+      dotnet-version: '5.0.x'
 
-  <p># specify the runner machine to use</p>
-  <p>runs-on: ubuntu-latest</p>
-  <p># specify the steps to run</p>
+  # build and publish the project using dotnet command
+  - name: Build and publish
+    run: dotnet publish -c Release -o output
 
-  <h5>steps:</h5>
+  # upload the output folder as an artifact for later use
+  - name: Upload artifact
+    uses: actions/upload-artifact@v2
+    with:
+      name: output
+      path: output
 
-  <p># checkout the code from the repository</p>
-  <p>- name: Checkout code</p>
-  <p>uses: actions/checkout@v2</p>
+  # run unit tests using MSTest framework
+  - name: Run tests
+    run: dotnet test --logger "trx;LogFileName=test-results.xml"
 
-  <p># setup dotnet environment on the runner machine</p>
-  <p>- name: Setup dotnet</p>
-  <p>uses: actions/setup-dotnet@v1</p>
-  <p>with:</p>
-  <p>dotnet-version: '5.0.x'</p>
+  # upload test results file as an artifact for later use
+  - name: Upload test results
+    uses: actions/upload-artifact@v2
+    with:
+      name: test-results
+      path: test-results.xml
 
-  <p># build and publish the project using dotnet command</p>
-  <p>- name: Build and publish</p>
-  <p>run: dotnet publish -c Release -o output</p>
+  # display test results using dorny/test-reporter action
+  - name: Display test results
+    uses: dorny/test-reporter@v1
+    with:
+      name: Unit Tests
+      path: test-results.xml
+      reporter: dotnet-trx
 
-  <p># upload the output folder as an artifact for later use</p>
-  <p>- name: Upload artifact</p>
-  <p>uses: actions/upload-artifact@v2</p>
-  <p>with:</p>
-  <p>name: output</p>
-  <p>path: output</p>
+steps:
+  # install and configure NUnit console runner using dotnet tool command
+  - name: Install NUnit console runner
+    run: dotnet tool install --global nunit.consolerunner
 
-  <p># run unit tests using MSTest framework</p>
-  <p>- name: Run tests</p>
-  <p>run: dotnet test --logger "trx;LogFileName=test-results.xml"</p>
+  # run integration tests using NUnit console runner and generate test results file in XML format
+  - name: Run integration tests
+    run: nunit3-console --result=integration-test-results.xml MyProject.IntegrationTests.dll
 
-  <p># upload test results file as an artifact for later use</p>
-  <p>- name: Upload test results</p>
-  <p>uses: actions/upload-artifact@v2</p>
-  <p>with:</p>
-  <p>name: test-results</p>
-  <p>path: test-results.xml</p>
+  # upload integration test results file as an artifact for later use
+  - name: Upload integration test results
+    uses: actions/upload-artifact@v2
+    with:
+      name: integration-test-results
+      path: integration-test-results.xml
 
-  <p># display test results using dorny/test-reporter action</p>
-  <p>- name: Display test results</p>
-  <p>uses: dorny/test-reporter@v1</p>
-  <p>with:</p>
-  <p>name: Unit Tests</p>
-  <p>path: test-results.xml</p>
-  <p>reporter: dotnet-trx</p>
+  # display integration test results using dorny/test-reporter action
+  - name: Display integration test results
+    uses: dorny/test-reporter@v1
+    with:
+      name: Integration Tests
+      path: integration-test-results.xml
+      reporter: nunit
 
-  <h5>steps:</h5>
+  # install and configure JMeter using setup-jmeter action
+  - name: Install JMeter
+    uses: jmeter-maven-plugin/setup-jmeter@v1
 
-  <p># install and configure NUnit console runner using dotnet tool command</p>
-  <p>- name: Install NUnit console runner</p>
-  <p>run: dotnet tool install --global nunit.consolerunner</p>
+  # run performance tests using JMeter and generate test results file in CSV format
+  - name: Run performance tests
+    run: jmeter -n -t MyProject.PerformanceTests.jmx -l performance-test-results.csv
 
-  <p># run integration tests using NUnit console runner and generate test results file in XML format</p>
-  <p>- name: Run integration tests</p>
-  <p>run: nunit3-console --result=integration-test-results.xml MyProject.IntegrationTests.dll</p>
+  # upload performance test results file as an artifact for later use
+  - name: Upload performance test results
+    uses: actions/upload-artifact@v2
+    with:
+      name: performance-test-results
+      path: performance-test-results.csv
 
-  <p># upload integration test results file as an artifact for later use</p>
-  <p>- name: Upload integration test results</p>
-  <p>uses: actions/upload-artifact@v2</p>
-  <p>with:</p>
-  <p>name: integration-test-results</p>
-  <p>path: integration-test-results.xml</p>
+  # display performance test results using custom script (not shown here)
+  - name: Display performance test results
+    run: ./display-performance-test-results.sh
 
-  <p># display integration test results using dorny/test-reporter action</p>
-  <p>- name: Display integration test results</p>
-  <p>uses: dorny/test-reporter@v1</p>
-  <p>with:</p>
-  <p>name: Integration Tests</p>
-  <p>path: integration-test-results.xml</p>
-  <p>reporter: nunit</p>
+  # install and configure OWASP ZAP using zaproxy/action-full-scan action
+  - name: Install OWASP ZAP
+    uses: zaproxy/action-full-scan@v0.4.0
 
-  <p># install and configure JMeter using setup-jmeter action</p>
-  <p>- name: Install JMeter</p>
-  <p>uses: jmeter-maven-plugin/setup-jmeter@v1</p>
+  # run security tests using OWASP ZAP and generate test results file in HTML format
+  - name: Run security tests
+    run: docker exec zap-full-scan zap-full-scan.py -t https://my-project-url.com -r security-test-results.html
 
-  <p># run performance tests using JMeter and generate test results file in CSV format</p>
-  <p>- name: Run performance tests</p>
-  <p>run: jmeter -n -t MyProject.PerformanceTests.jmx -l performance-test-results.csv</p>
+  # upload security test results file as an artifact for later use
+  - name: Upload security test results
+    uses: actions/upload-artifact@v2
+    with:
+      name: security-test-results
+      path: security-test-results.html
 
-  <p># upload performance test results file as an artifact for later use</p>
-  <p>- name: Upload performance test results</p>
-  <p>uses: actions/upload-artifact@v2</p>
-  <p>with:</p>
-  <p>name: performance-test-results</p>
-  <p>path: performance-test-results.csv</p>
+  # display security test results using custom script (not shown here)
+  - name: Display security test results
+    run: ./display-security-test-results.sh
 
-  <p># display performance test results using custom script (not shown here)</p>
-  <p>- name: Display performance test results</p>
-  <p>run: ./display-performance-test-results.sh</p>
+steps:
+  # scan your code with SonarQube using sonarsource/sonarqube-scan-action action
+  - name: Scan with SonarQube
+    uses: sonarsource/sonarqube-scan-action@v1.0.0
+    with:
+      # specify the host URL of your SonarQube instance as a secret
+      host: ${{ secrets.SONARQUBE_HOST }}
+      # specify the login token of your SonarQube instance as a secret
+      login: ${{ secrets.SONARQUBE_TOKEN }}
+      # specify any additional parameters for sonar-scanner command
+      args: >
+        -Dsonar.projectKey=my-project-key
+        -Dsonar.sources=.
 
-  <p># install and configure OWASP ZAP using zaproxy/action-full-scan action</p>
-  <p>- name: Install OWASP ZAP</p>
-  <p>uses: zaproxy/action-full-scan@v0.4.0</p>
+  # scan your code with CodeQL using github/codeql-action action
+  - name: Scan with CodeQL
+    uses: github/codeql-action/init@v1
+    with:
+      # specify the languages to analyze (csharp, cpp, go, java, javascript, python)
+      languages: csharp
 
-  <p># run security tests using OWASP ZAP and generate test results file in HTML format</p>
-  <p>- name: Run security tests</p>
-  <p>run: docker exec zap-full-scan zap-full-scan.py -t https://my-project-url.com -r security-test-results.html</p>
+  # run codeql analysis after building your project
+  - name: Analyze with CodeQL
+    uses: github/codeql-action/analyze@v1
 
-  <p># upload security test results file as an artifact for later use</p>
-  <p>- name: Upload security test results</p>
-  <p>uses: actions/upload-artifact@v2</p>
-  <p>with:</p>
-  <p>name: security-test-results</p>
-  <p>path: security-test-results.html</p>
+  # measure your code coverage with Coverlet using coverlet-coverage/coverlet-action action
+  - name: Measure coverage with Coverlet
+    uses: coverlet-coverage/coverlet-action@v1.0.2
+    with:
+      # specify the path to your test project file (.csproj)
+      test-project-path: MyProject.Tests.csproj
+      # specify any additional parameters for dotnet test command
+      dotnet-test-params: --configuration Release --no-build --verbosity normal
 
-  <p># display security test results using custom script (not shown here)</p>
-  <p>- name: Display security test results</p>
-  <p>run: ./display-security-test-results.sh</p>
+steps:
+  # format your code with dotnet format tool using dotnet/format action
+  - name: Format code
+    uses: dotnet/format@v1
+    with:
+      # specify the path to your solution file (.sln)
+      folder-or-solution: MyProject.sln
 
-  <h5>steps:</h5>
+  # analyze your code with Roslyn analyzers using dotnet/roslyn-analyzers action
+  - name: Analyze code
+    uses: dotnet/roslyn-analyzers@v1.0.0-rc1.21430.3
+    with:
+      # specify any additional parameters for dotnet build command
+      dotnet-build-params: --configuration Release
 
-  <p># scan your code with SonarQube using sonarsource/sonarqube-scan-action action</p>
-  <p>- name: Scan with SonarQube</p>
-  <p>uses: sonarsource/sonarqube-scan-action@v1.0.0</p>
-  <p>with:</p>
-  <p># specify the host URL of your SonarQube instance as a secret</p>
-  <p>host: ${{ secrets.SONARQUBE_HOST }}</p>
-  <p># specify the login token of your SonarQube instance as a secret</p>
-  <p>login: ${{ secrets.SON
+  # check your code with PVS-Studio static analyzer using PVS-Studio-Team/PVS-Studio-action action
+  - name: Check code
+    uses: PVS-Studio-Team/PVS-Studio-action@v1.0.0-beta2
+    with:
+      # specify the path to your solution file (.sln)
+      solution-path: MyProject.sln
+      # specify any additional parameters for pvs-studio-analyzer command
+      analyzer-options: --analysis-mode=4 --output-file=pvs-studio-report.log
 
-ARQUBE_TOKEN }}</p>
-  <p># specify any additional parameters for sonar-scanner command</p>
-  <p>args: ></p>
-  <p>-Dsonar.projectKey=my-project-key</p>
-  <p>-Dsonar.sources=.</p>
+steps:
+  # cache NuGet packages using actions/cache
+  - name: Cache NuGet packages
+    uses: actions/cache@v2
+    with:
+      # use packages.lock.json file or *.csproj files as cache key
+      key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+      restore-keys: |
+        ${{ runner.os }}-nuget-
+      # specify the path to the NuGet packages folder
+      path: |
+        ~\AppData\Local\NuGet\v3-cache
+        ~/.nuget/packages
 
-  <p># scan your code with CodeQL using github/codeql-action action</p>
-  <p>- name: Scan with CodeQL</p>
-  <p>uses: github/codeql-action/init@v1</p>
-  <p>with:</p>
-  <p># specify the languages to analyze (csharp, cpp, go, java, javascript, python)</p>
-  <p>languages: csharp</p>
+steps:
+  # ...
+  # deploy the new version of the software if all tests are successful
+  - name: Deploy to Azure
+    if: success()
+    # download the output folder from the previous steps
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: output
+        path: output
 
-  <p># run codeql analysis after building your project</p>
-  <p>- name: Analyze with CodeQL</p>
-  <p>uses: github/codeql-action/analyze@v1</p>
+    # deploy the output folder to an Azure Web App using azure/webapps-deploy action
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'your-web-app-name'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
-  <p># measure your code coverage with Coverlet using coverlet-coverage/coverlet-action action</p>
-  <p>- name: Measure coverage with Coverlet</p>
-  <p>uses: coverlet-coverage/coverlet-action@v1.0.2</p>
-  <p>with:</p>
-  <p># specify the path to your test project file (.csproj)</p>
-  <p>test-project-path: MyProject.Tests.csproj</p>
-  <p># specify any additional parameters for dotnet test command</p>
-  <p>dotnet-test-params: --configuration Release --no-build --verbosity normal</p>
+steps:
+  # generate markdown documentation from shell scripts using vargiuscuola/generate-docs action
+  - name: Generate docs
+    uses: vargiuscuola/generate-docs@v1
+    with:
+      # specify the input directory containing the shell scripts
+      input_dir: scripts
+      # specify the output directory for the generated markdown files
+      output_dir: docs
 
-  <h5>steps:</h5>
-
-  <p># format your code with dotnet format tool using dotnet/format action</p>
-  <p>- name: Format code</p>
-  <p>uses: dotnet/format@v1</p>
-  <p>with:</p>
-  <p># specify the path to your solution file (.sln)</p>
-  <p>folder-or-solution: MyProject.sln</p>
-
-  <p># analyze your code with Roslyn analyzers using dotnet/roslyn-analyzers action</p>
-  <p>- name: Analyze code</p>
-  <p>uses: dotnet/roslyn-analyzers@v1.0.0-rc1.21430.3</p>
-  <p>with:</p>
-  <p># specify any additional parameters for dotnet build command</p>
-  <p>dotnet-build-params: --configuration Release</p>
-
-  <p># check your code with PVS-Studio static analyzer using PVS-Studio-Team/PVS-Studio-action action</p>
-  <p>- name: Check code</p>
-  <p>uses: PVS-Studio-Team/PVS-Studio-action@v1.0.0-beta2</p>
-  <p>with:</p>
-  <p># specify the path to your solution file (.sln)</p>
-  <p>solution-path: MyProject.sln</p>
-  <p># specify any additional parameters for pvs-studio-analyzer command</p>
-  <p>analyzer-options: --analysis-mode=4 --output-file=pvs-studio-report.log</p>
-
-  <h5>steps:</h5>
-
-  <p># cache NuGet packages using actions/cache</p>
-  <p>- name: Cache NuGet packages</p>
-  <p>uses: actions/cache@v2</p>
-  <p>with:</p>
-  <p># use packages.lock.json file or *.csproj files as cache key</p>
-  <p>key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}</p>
-  <p>restore-keys: |</p>
-  <p>${{ runner.os }}-nuget-</p>
-  <p># specify the path to the NuGet packages folder</p>
-  <p>path: |</p>
-  <p>~\AppData\Local\NuGet\v3-cache</p>
-  <p>~/.nuget/packages</p>
-
-  <h5>steps:</h5>
-
-  <p># ...</p>
-  <p># deploy the new version of the software if all tests are successful</p>
-  <p>- name: Deploy to Azure</p>
-  <p>if: success()</p>
-  <p># download the output folder from the previous steps</p>
-  <p>- name: Download artifact</p>
-  <p>uses: actions/download-artifact@v2</p>
-  <p>with:</p>
-  <p>name: output</p>
-  <p>path: output</p>
-
-  <p># deploy the output folder to an Azure Web App using azure/webapps-deploy action</p>
-  <p>- name: Deploy to Azure Web App</p>
-  <p>uses: azure/webapps-deploy@v2</p>
-  <p>with:</p>
-  <p>app-name: 'your-web-app-name'</p>
-  <p>slot-name: 'production'</p>
-  <p>publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}</p>
-
-  <h5>steps:</h5>
-
-  <p># generate markdown documentation from shell scripts using vargiuscuola/generate-docs action</p>
-  <p>- name: Generate docs</p>
-  <p>uses: vargiuscuola/generate-docs@v1</p>
-  <p>with:</p>
-  <p># specify the input directory containing the shell scripts</p>
-  <p>input_dir: scripts</p>
-  <p># specify the output directory for the generated markdown files</p>
-  <p>output_dir: docs</p>
-
-  <p># publish documentation to GitHub Pages using peaceiris/actions-gh-pages action</p>
-  <p>- name: Publish docs</p>
-  <p>uses: peaceiris/actions-gh-pages@v3</p>
-  <p>with:</p>
-  <p># specify the personal access token with repo scope as a secret</p>
-  <p>github_token: ${{ secrets.GITHUB_TOKEN }}</p>
-  <p># specify the branch name for GitHub Pages</p>
-  <p>publish_branch: gh-pages</p>
-  <p># specify the directory containing the documentation files</p>
-  <p>publish_dir: docs</p>
-
-</body>
-
-</html>
+  # publish documentation to GitHub Pages using peaceiris/actions-gh-pages action
+  - name: Publish docs
+    uses: peaceiris/ac*tions-gh-pages@v3
+    with:
+      # specify the personal access token with repo scope as a secret
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      # specify the branch name for GitHub Pages
+      publish_branch: gh-pages
+      # specify the directory containing the documentation files
+      publish_dir: docs
+```
