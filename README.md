@@ -11,7 +11,7 @@
     <td align="center"><a href="projects/1-devops pipelines/php/php_build_pipeline.md"><img src="images/php.png" width="75px;" height="75px;" alt="Hardware"/><br /><b>PHP Build Pipeline</b></a></td>
     <td align="center"><a href="projects/1-devops pipelines/dot-net/dot_net_build_pipeline.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>.NET Build Pipeline</b></a></td>
     <td align="center"><a href="1-projects/devops pipelines/python/java_build_pipeline.md"><img src="images/python.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>Python Build Pipeline</b></a></td>
-    <td align="center"><a href="1-projects/devops pipelines/c++/java_build_pipeline.md"><img src="images/c++.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>C++ Build Pipeline</b></a></td>
+    <td align="center"><a href="1-projects/1-devops pipelines/c#/csharp.md"><img src="images/csharp.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>C# Build Pipeline</b></a></td>
   </tr>
 
   <tr>
