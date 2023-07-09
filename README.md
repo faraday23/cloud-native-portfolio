@@ -62,7 +62,7 @@
       <td align="center"><a href="#mongo"><img src="images/mongodb.png" width="75px;" height="75px;" alt="Mongo"/><br /><b>MongoDB</b></a></td>
       <td align="center"><a href="projects/7-database/postgressql/postgresql.md"><img src="images/postgresql.png" width="75px;" height="75px;" alt="Testing"/><br /><b>PostrgesSQL</b></a></td>
       <td align="center"><a href="#testing"><img src="images/cosmos.png" width="75px;" height="75px;" alt="Testing"/><br /><b>CosmosDB</b></a></td>
-
+      <td align="center"><a href="projects/7-database//database automation/db_automation.md"><img src="images/databases.png" width="75px;" height="75px;" alt="Testing"/><br /><b>Database Automation</b></a></td>
   </tr>
 
   <tr>
