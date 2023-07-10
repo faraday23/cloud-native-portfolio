@@ -1,3 +1,6 @@
+  <p><strong>Task:</strong> The main challenge was to provide timely and accurate insights and reports on the epidemiological trends and patterns of the diseases and outbreaks. Given the dynamic and complex nature of the data and the public health scenarios, my task was focused on enhancing the analytical capabilities and the reporting functionalities of the system.</p>
+
+
 <h2>Step 1: Install Elasticsearch, Logstash, and Kibana</h2>
 
 <p>To install Elasticsearch, Logstash, and Kibana, you can use the official repositories or download the packages from the website. For example, on Debian or Ubuntu, you can run the following commands:</p>
