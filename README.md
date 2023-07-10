@@ -52,8 +52,8 @@
 
   <tr>
       <td align="center"><a href="topics/observability/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="observability"/><br /><b>Server Administration</b></a></td>
-      <td align="center"><a href="projects/6-server administration/windows server.md"><img src="images/windows.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Windows</b></a></td>
-      <td align="center"><a href="projects/6-server administration/apache server.md"><img src="images/linux.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Linux</b></a></td>
+      <td align="center"><a href="projects/6-server administration/windows server/windows server.md"><img src="images/windows.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Windows</b></a></td>
+      <td align="center"><a href="projects/6-server administration/linux server/apache server.md"><img src="images/linux.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Linux</b></a></td>
   </tr>
   
   <tr>
