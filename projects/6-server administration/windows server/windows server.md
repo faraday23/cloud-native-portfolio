@@ -7,6 +7,8 @@
     <h1>PowerShell Script for Managing IIS Web Servers</h1>
 
 <p>My task was to automate the process of managing our IIS web servers, including creating and configuring websites, managing application pools, and handling SSL certificates, with a PowerShell script to reduce human error and streamline our operations.</p>
+
+<br>
     
     <ol>
         <li>

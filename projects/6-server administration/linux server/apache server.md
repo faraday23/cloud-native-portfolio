@@ -7,6 +7,9 @@
     <h1>Bash Script for Managing Apache Virtual Hosts</h1>
 
 <p>My primary task was to automate the deployment process of web applications to Apache web servers. This included automating tasks like file copying, virtual host setup, and server restarts.</p>
+
+<br>
+    
     
     <ol>
         <li>
