@@ -7,33 +7,33 @@
     <h1>PowerShell Script for Managing IIS Web Servers</h1>
     <p>My task was to automate the process of managing our IIS web servers, including creating and configuring websites, managing application pools, and handling SSL certificates, with a PowerShell script to reduce human error and streamline our operations.</p>
     
-    <ol>
-        <li>
-            <p>
-                To use the WebAdministration module, you need to import it first with the command <code>Import-Module WebAdministration</code>. This will load the cmdlets and functions that are used to manage IIS.
-            </p>
-        </li>
-        <li>
-            <p>
-                To create a new website, you can use the cmdlet <code>New-Website</code>, which takes various parameters such as name, physical path, port, host header, etc. For example, to create a website called "MyApp" with the physical path "C:\inetpub\wwwroot\MyApp" on port 80, you can use the command <code>New-Website -Name MyApp -PhysicalPath C:\inetpub\wwwroot\MyApp -Port 80</code>.
-            </p>
-        </li>
-        <li>
-            <p>
-                To configure application pools, you can use the cmdlet <code>Set-ItemProperty</code>, which allows you to modify the properties of an item in the IIS configuration. For example, to set the .NET framework version of the application pool "MyAppPool" to v4.0, you can use the command <code>Set-ItemProperty IIS:\AppPools\MyAppPool managedRuntimeVersion v4.0</code>. You can also use this cmdlet to change other properties such as identity, recycling settings, etc.
-            </p>
-        </li>
-        <li>
-            <p>
-                To bind SSL certificates to the website, you can use the cmdlet <code>New-WebBinding</code>, which creates a new binding for a website. For example, to bind a certificate with the thumbprint "1234567890ABCDEF" to the website "MyApp" on port 443 with HTTPS protocol, you can use the command <code>New-WebBinding -Name MyApp -Protocol https -Port 443 -SslFlags 0 -CertificateThumbPrint 1234567890ABCDEF</code>. You can also use this cmdlet to create other types of bindings such as HTTP or FTP.
-            </p>
-        </li>
-        <li>
-            <p>
-                To restart IIS, you can use the cmdlet <code>Restart-WebServer</code>, which stops and starts the IIS service. This is useful if you need to apply changes or refresh the configuration. You can use this command without any parameters to restart the entire IIS service, or you can specify a website name or an application pool name to restart only that part of IIS.
-            </p>
-        </li>
-    </ol>
+<ol>
+    <li>
+        <p>
+            To use the WebAdministration module, you need to import it first with the command <code>Import-Module WebAdministration</code>. This will load the cmdlets and functions that are used to manage IIS.
+        </p>
+    </li>
+    <li>
+        <p>
+            To create a new website, you can use the cmdlet <code>New-Website</code>, which takes various parameters such as name, physical path, port, host header, etc. For example, to create a website called "MyApp" with the physical path "C:\inetpub\wwwroot\MyApp" on port 80, you can use the command <code>New-Website -Name MyApp -PhysicalPath C:\inetpub\wwwroot\MyApp -Port 80</code>.
+        </p>
+    </li>
+    <li>
+        <p>
+            To configure application pools, you can use the cmdlet <code>Set-ItemProperty</code>, which allows you to modify the properties of an item in the IIS configuration. For example, to set the .NET framework version of the application pool "MyAppPool" to v4.0, you can use the command <code>Set-ItemProperty IIS:\AppPools\MyAppPool managedRuntimeVersion v4.0</code>. You can also use this cmdlet to change other properties such as identity, recycling settings, etc.
+        </p>
+    </li>
+    <li>
+        <p>
+            To bind SSL certificates to the website, you can use the cmdlet <code>New-WebBinding</code>, which creates a new binding for a website. For example, to bind a certificate with the thumbprint "1234567890ABCDEF" to the website "MyApp" on port 443 with HTTPS protocol, you can use the command <code>New-WebBinding -Name MyApp -Protocol https -Port 443 -SslFlags 0 -CertificateThumbPrint 1234567890ABCDEF</code>. You can also use this cmdlet to create other types of bindings such as HTTP or FTP.
+        </p>
+    </li>
+    <li>
+        <p>
+            To restart IIS, you can use the cmdlet <code>Restart-WebServer</code>, which stops and starts the IIS service. This is useful if you need to apply changes or refresh the configuration. You can use this command without any parameters to restart the entire IIS service, or you can specify a website name or an application pool name to restart only that part of IIS.
+        </p>
+    </li>
+</ol>
 
     <h2>PowerShell Script:</h2>
 
@@ -109,5 +109,6 @@
             Restart-IIS
         </code>
     </pre>
+
 </body>
 </html>
