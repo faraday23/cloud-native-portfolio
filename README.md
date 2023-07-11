@@ -25,7 +25,7 @@
       <td align="center"><a href="topics/cloud/README.md"><img src="images/cloud.png" width="75px;" height="75px;" alt="Cloud"/><br/><b>Cloud Computing</b></a></td>
       <td align="center"><a href="projects/2-cloud computing/aws/aws.md"><img src="images/aws.png" width="100px;" height="75px;" alt="aws"/><br /><b>AWS</b></a></td>
       <td align="center"><a href="projects/2-cloud computing/azure/azure.md"><img src="images/azure.png" width="75px;" height="75px;" alt="azure"/><br /><b>Azure</b></a></td>
-      <td align="center"><a href="projects/2-cloud computing/gcp/gcp.md"><img src="images/googlecloud.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
+      <td align="center"><a href="projects/2-cloud computing/gcp/.md"><img src="images/googlecloud.png" width="70px;" height="70px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
       <td align="center"><a href="projects/2-cloud computing/openstack/openstack.md"><img src="images/openstack.png" width="75px;" height="75px;" alt="openstack"/><br /><b>OpenStack</b></a></td>
   </tr>
 
