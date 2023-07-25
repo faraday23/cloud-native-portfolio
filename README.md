@@ -92,8 +92,8 @@
 
   <tr>
       <td align="center"><a href="topics/Distributed Tracing/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="observability"/><br /><b>Distributed Tracing</b></a></td>
-      <td align="center"><a href="#prometheus"><img src="images/application insights.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Applicaiton Insights</b></a></td>
-      <td align="center"><a href="projects/11-distributed tracing/open-telemetry.md"><img src="images/otel.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Open Telemetry</b></a></td>
+      <td align="center"><a href="#prometheus"><img src="images/application insights.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Application Insights</b></a></td>
+      <td align="center"><a href="projects/11-distributed tracing/application-insights/application-insights.md"><img src="images/otel.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Open Telemetry</b></a></td>
       <td align="center"><a href="topics/datadog/README.md"><img src="images/zipkin.png" width="80px;" height="80px;" alt="DataDog"/><br /><b></b>Zipkin</a></td>
       <td align="center"><a href="topics/grafana/README.md"><img src="images/jaegar.png" width="80px;" height="80px;" alt="Grafana"/><br /><b>Jaegar</b></a></td>
   </tr>
