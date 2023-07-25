@@ -100,9 +100,9 @@
   
   <tr>
       <td align="center"><a href="topics/observability/README.md"><img src="images/networking.png" width="75px;" height="75px;" alt="observability"/><br /><b>Networking</b></a></td>
-      <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Azure express route</b></a></td>
-      <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure virtual network</b></a></td>
-      <td align="center"><a href="projects/12-networking/azure virtual networking.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Load Balancer</b></a></td>
+      <td align="center"><a href="projects/12-networking/azure networking/az_virtual_network.md"><img src="images/azure express route.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Azure express route</b></a></td>
+      <td align="center"><a href="projects/12-networking/azure networking/az_virtual_network.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure virtual network</b></a></td>
+      <td align="center"><a href="projects/12-networking/azure networking/az_virtual_network.md"><img src="images/azure express route.png" width="70px;" height="70px;" alt="Circle CI"/><br /><b>Azure Load Balancer</b></a></td>
   </tr>
   
   <tr>
