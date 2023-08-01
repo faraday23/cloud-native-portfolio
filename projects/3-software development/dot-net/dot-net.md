@@ -1,10 +1,10 @@
-<h1>Migrating to Cloud-Native Architecture: A Step-by-Step Guide</h1>
+<h1>Migrating to Cloud-Native Architecture: My Journey</h1>
 
 <h2>1. Analyzing the Existing Application</h2>
-<p>During this stage, you'd look at the current monolithic application and identify distinct areas of functionality that can be separated into independent microservices.</p>
+<p>During the initial stage, I looked at the current monolithic application and identified distinct areas of functionality that could be separated into independent microservices.</p>
 
 <h2>2. Creating Microservices in .NET</h2>
-<p>You can use Visual Studio to create new .NET projects for each microservice. With the minimal APIs feature introduced in .NET 6, you can quickly define lightweight, expressive HTTP APIs. Here's an example:</p>
+<p>I used Visual Studio to create new .NET projects for each microservice. With the minimal APIs feature introduced in .NET 6, I was able to quickly define lightweight, expressive HTTP APIs. Here's an example of what I did:</p>
 <pre>
 <code>
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +17,7 @@ app.Run();
 </pre>
 
 <h2>3. Containerizing Microservices</h2>
-<p>The .NET SDK has built-in support for Docker. In the project directory, you can add a <code>Dockerfile</code> to define how to build a Docker image of your microservice:</p>
+<p>The .NET SDK has built-in support for Docker, which I made use of. In the project directory, I added a <code>Dockerfile</code> to define how to build a Docker image of my microservice:</p>
 <pre>
 <code>
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
@@ -43,10 +43,10 @@ ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 </pre>
 
 <h2>4. Deploying to Azure</h2>
-<p>You can deploy your Docker containers to Azure using Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). Azure CLI or Azure PowerShell can be used for deployment.</p>
+<p>I deployed my Docker containers to Azure using Azure Container Instances (ACI) and Azure Kubernetes Service (AKS). For the deployment, I utilized Azure CLI and Azure PowerShell.</p>
 
 <h2>5. Using Azure Services</h2>
-<p>You can use various Azure services as the backing services for your application:</p>
+<p>I made use of various Azure services as the backing services for my application:</p>
 <ul>
   <li>Azure SQL Database or Azure Cosmos DB for data storage.</li>
   <br>
@@ -58,7 +58,7 @@ ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 </ul>
 
 <h2>6. Ensuring Consistency Across Microservices</h2>
-<p>To ensure consistency and reliability across microservices, you implemented the saga pattern using Azure Service Bus and Azure Durable Functions. Here's an example of how you might define a durable function to coordinate a saga:</p>
+<p>To ensure consistency and reliability across microservices, I implemented the saga pattern using Azure Service Bus and Azure Durable Functions. Here's an example of how I defined a durable function to coordinate a saga:</p>
 <pre>
 <code>
 [FunctionName("SagaOrchestrator")]
@@ -85,4 +85,4 @@ public static async Task RunOrchestrator(
 </pre>
 
 <h2>7. Results and Feedback</h2>
-<p>After successfully migrating the application to a cloud-native architecture using .NET and Azure, you received positive feedback from your manager and clients for your work. This is a testament to the benefits of using cloud-native architectures and the capabilities of .NET and Azure.</p>
+<p>After successfully migrating the application to a cloud-native architecture using .NET and Azure, I received positive feedback from my manager and clients for my work. This is a testament to the benefits of using cloud-native architectures and the capabilities of .NET and Azure.</p>
