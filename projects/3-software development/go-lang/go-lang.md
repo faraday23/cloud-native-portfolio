@@ -7,6 +7,9 @@
 <p>I designed a microservices architecture where each service was an independent application that communicated with other services via a well-defined API. I built each service as a small Golang application.</p>
 
 <p>Here's a simple example of a Golang HTTP server that served as the basis for a microservice:</p>
+
+<br>
+
 <pre>
 <code>
 package main
@@ -25,6 +28,9 @@ func main() {
 }
 </code>
 </pre>
+
+<br>
+
 <p>This application listened for HTTP requests on port 8080 and responded with a simple text message.</p>
 
 <h2>Identifying the Issue</h2>
@@ -57,6 +63,8 @@ func main() {
 </pre>
 <p>In the above example, if the <code>Query</code> method took a long time to execute, the goroutine would be blocked, causing performance issues. To solve this, I used a connection pool and made the database operations concurrent. I used goroutines and channels to achieve this. Here's an example of how I implemented it:</p>
 
+<br>
+
 <pre>
 <code>
 package main
@@ -88,9 +96,10 @@ func main() {
 }
 </code>
 </pre>
+
+<br>
+
 <p>In this example, each row was processed in a separate goroutine, which could run concurrently with other goroutines, thus increasing the application's performance.</p>
 
 <h2>Result</h2>
 <p>After these modifications, the performance of the service improved significantly, with a 60% decrease in response times under heavy load. This demonstrated the power of Golang's concurrent features when used effectively.</p>
-
-<p><b>Please note:</b> This is a simplification of the actual process.</p>
