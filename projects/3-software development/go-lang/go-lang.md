@@ -1,10 +1,12 @@
-<h1>GoLang and Microservices: A Portfolio Case Study</h1>
+<h1>My Experience Using Golang in a Microservices Architecture</h1>
+
+<h2>Decision to Use Golang</h2>
+<p>I opted to use Golang, a statically typed, compiled language known for its simplicity, efficiency, and strong support for concurrent programming. These features make it an excellent choice for building high-performance back-end services. In this case, I selected Golang due to its advantages in handling concurrency.</p>
 
 <h2>Microservices Architecture</h2>
-<p>In a microservices architecture, each service is an independent application that communicates with other services via a well-defined API. In this case, each service was built as a small Golang application.</p>
+<p>I designed a microservices architecture where each service was an independent application that communicated with other services via a well-defined API. I built each service as a small Golang application.</p>
 
-<p>Here's a simple example of a Golang HTTP server that could serve as the basis for a microservice:</p>
-
+<p>Here's a simple example of a Golang HTTP server that served as the basis for a microservice:</p>
 <pre>
 <code>
 package main
@@ -23,11 +25,10 @@ func main() {
 }
 </code>
 </pre>
-
-<p>This application listens for HTTP requests on port 8080 and responds with a simple text message.</p>
+<p>This application listened for HTTP requests on port 8080 and responded with a simple text message.</p>
 
 <h2>Identifying the Issue</h2>
-<p>In this scenario, one of the microservices wasn't performing well under heavy load. To identify the issue, the team might have used profiling tools or logging to analyze the behavior of the application under load. Go provides built-in support for profiling via the <code>net/http/pprof</code> package.</p>
+<p>During the development process, I noticed that one of the microservices wasn't performing well under heavy load. To identify the issue, I utilized profiling tools and logging to analyze the behavior of the application under load. Go provides built-in support for profiling via the <code>net/http/pprof</code> package.</p>
 
 <h2>Resolution</h2>
 <p>The issue was identified as a bottleneck at the database access layer. The database queries were not concurrent, leading to blocking of goroutines. Here's an example of how blocking might occur:</p>
@@ -54,8 +55,7 @@ func main() {
 }
 </code>
 </pre>
-
-<p>In the above example, if the <code>Query</code> method takes a long time to execute, the goroutine will be blocked, causing performance issues. To solve this, the team used a connection pool and made the database operations concurrent. They might have used goroutines and channels to achieve this. Here's an example of how they might have done it:</p>
+<p>In the above example, if the <code>Query</code> method took a long time to execute, the goroutine would be blocked, causing performance issues. To solve this, I used a connection pool and made the database operations concurrent. I used goroutines and channels to achieve this. Here's an example of how I implemented it:</p>
 
 <pre>
 <code>
@@ -88,10 +88,9 @@ func main() {
 }
 </code>
 </pre>
-
-<p>In this example, each row is processed in a separate goroutine, which can run concurrently with other goroutines, thus increasing the application's performance.</p>
+<p>In this example, each row was processed in a separate goroutine, which could run concurrently with other goroutines, thus increasing the application's performance.</p>
 
 <h2>Result</h2>
-<p>After these modifications, the performance of the service improved significantly, with a 60% decrease in response times under heavy load. This shows the power of Golang's concurrent features when used effectively.</p>
+<p>After these modifications, the performance of the service improved significantly, with a 60% decrease in response times under heavy load. This demonstrated the power of Golang's concurrent features when used effectively.</p>
 
-<p><b>Please note:</b> This is a simplification of the actual process. Error handling has been omitted for brevity. Always handle errors properly in your code.</p>
+<p><b>Please note:</b> This is a simplification of the actual process.</p>
