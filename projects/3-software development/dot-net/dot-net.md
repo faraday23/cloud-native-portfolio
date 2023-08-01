@@ -74,7 +74,6 @@ ENTRYPOINT ["dotnet", "MyMicroservice.dll"]
 
 <pre>
 <code>
-```csharp
 [FunctionName("SagaOrchestrator")]
 public static async Task RunOrchestrator(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -95,7 +94,6 @@ public static async Task RunOrchestrator(
         // Additional compensations...
     }
 }
-```
 </code>
 </pre>
 
