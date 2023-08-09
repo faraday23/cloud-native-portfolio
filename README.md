@@ -43,12 +43,34 @@
     <td align="center"><a href="projects/4-scripting/bash"><img src="images/bash.png" width="75px;" height="75px;" alt="Powershell"/><br /><b>Bash</b></a></td>
     <td align="center"><a href="projects/4-scripting/powershell"><img src="images/powershell.png" width="75px;" height="75px;" alt="perl"/><br /><b>Powershell</b></a></td>
   </tr>
-  
-  <!-- <tr>
-      <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Framework-Library</b></a></td>
-      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>.NET</b></a></td>
-      <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>React</b></a></td>
-      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Angular</b></a></td>
+<!-- 
+  <tr>
+      <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Cloud Native Design Patterns</b></a></td>
+      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>Reliability</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Scalability</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Efficiency</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Security</b></a></td>
+  </tr>
+
+  <tr>
+      <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Amazon Web Service (AWS) </b></a></td>
+      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>Amazon Elastic Kubernetes Service (EKS)</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Amazon Elastic Beanstalk</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>AWS Lambda</b></a></td>
+  </tr>
+
+  <tr>
+      <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Azure</b></a></td>
+      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>Azure App Services</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Azure Kubernetes Service</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Azure Functions</b></a></td>
+  </tr>
+
+  <tr>
+      <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Google Cloud Platform (GCP) </b></a></td>
+      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>Google Kubernetes Engine (GKE)</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Google App Engine</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Google Cloud Functions</b></a></td>
   </tr> -->
 
   <tr>
