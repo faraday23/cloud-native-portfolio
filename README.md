@@ -145,9 +145,9 @@
 
    <tr>
     <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="DevSecOps"/><br /><b>DevSecOps</b></a></td>
-    <td align="center"><a href="projects/19-helm/helm.md"><img src="images/checkmarx.png" width="75px;" height="75px;" alt="Misc"/><br /><b>CheckMarx/Jfrog XRAY</b></a></td>
+    <td align="center"><a href="projects/19-helm/helm.md"><img src="images/Checkmarx.png" width="75px;" height="75px;" alt="Misc"/><br /><b>CheckMarx/Jfrog XRAY</b></a></td>
     <td align="center"><a href="projects/19-helm/helm.md"><img src="images/sonarqube.png" width="75px;" height="75px;" alt="Misc"/><br /><b>SonarQube/Owasp ZAP</b></a></td>
-    <td align="center"><a href="projects/19-helm/helm.md"><img src="images/twistlock.png" width="75px;" height="75px;" alt="Misc"/><br /><b>PrismaCloud/Twistlock</b></a></td>
+    <td align="center"><a href="projects/19-helm/helm.md"><img src="images/Twistlock.png" width="75px;" height="75px;" alt="Misc"/><br /><b>PrismaCloud/Twistlock</b></a></td>
    </tr>
 
    <tr>
