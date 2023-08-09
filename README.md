@@ -46,9 +46,9 @@
   
   <tr>
       <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Framework-Library</b></a></td>
-      <td align="center"><a href="projects/1-devops pipelines/dot-net/dot_net_build_pipeline.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>.NET</b></a></td>
+      <td align="center"><a href="projects/3-software development/dot-net/dot-net.md"><img src="images/dot-net.png" width="75px;" height="75px;" alt="Linux"/><br /><b>.NET</b></a></td>
       <td align="center"><a href="#virtualization"><img src="images/react.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>React</b></a></td>
-      <td align="center"><a href="projects/5-framework-library/angular.md"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Angular</b></a></td>
+      <td align="center"><a href="#virtualization"><img src="images/angular.png" width="75px;" height="75px;" alt="DNS"/><br /><b>Angular</b></a></td>
   </tr>
 
   <tr>
