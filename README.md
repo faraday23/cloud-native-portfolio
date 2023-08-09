@@ -129,7 +129,7 @@
    <tr>
     <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Chaos Engineering</b></a></td>
     <td align="center"><a href="projects/16-chaos engineering/k6.md"><img src="images/k6.png" width="75px;" height="75px;" alt="Misc"/><br /><b>k6</b></a></td>
-    <td align="center"><a href="#elastic"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>gremlin</b></a></td>
+    <td align="center"><a href="#elastic"><img src="images/gremlin.png" width="75px;" height="75px;" alt="Elastic"/><br /><b>Litmus Chaos</b></a></td>
    </tr>
 
    <tr>
