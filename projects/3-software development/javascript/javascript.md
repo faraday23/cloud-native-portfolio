@@ -1,105 +1,90 @@
-```js
-// Import k6 modules
-import http from 'k6/http';
-import { check, sleep } from 'k6';
+<h1>Migrating to Cloud-Native Architecture: My Journey</h1>
 
-// Define user scenarios
-export let options = {
-  scenarios: {
-    login: {
-      executor: 'constant-vus',
-      vus: 10,
-      duration: '5m',
-      tags: { type: 'login' },
-    },
-    browse: {
-      executor: 'ramping-vus',
-      startVUs: 0,
-      stages: [
-        { duration: '5m', target: 50 },
-        { duration: '10m', target: 100 },
-        { duration: '5m', target: 0 },
-      ],
-      tags: { type: 'browse' },
-    },
-    purchase: {
-      executor: 'per-vu-iterations',
-      vus: 20,
-      iterations: 10,
-      maxDuration: '15m',
-      tags: { type: 'purchase' },
-    },
-  },
-};
+<h2>1. Analyzing the Existing Application</h2>
+<p>During the initial stage, I looked at the current monolithic application and identified distinct areas of functionality that could be separated into independent microservices.</p>
 
-// Define base URL and endpoints
-const BASE_URL = 'https://example.com';
-const LOGIN_URL = `${BASE_URL}/login`;
-const BROWSE_URL = `${BASE_URL}/browse`;
-const PURCHASE_URL = `${BASE_URL}/purchase`;
+<h2>2. Creating Microservices in Node.js</h2>
+<p>I used Visual Studio Code to create new Node.js projects for each microservice. With Express.js, I was able to quickly define lightweight, expressive HTTP APIs. Here's an example of what I did:</p>
 
-// Define user credentials
-const USERNAME = 'test@example.com';
-const PASSWORD = 'password';
+<br>
 
-// Define think time
-const THINK_TIME = 3;
+<pre>
+<code>
+const express = require('express');
+const app = express();
+const port = 3000;
 
-// Define helper function to generate random number
-function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+app.get('/', (req, res) => res.send('Hello, world!'));
 
-// Define login scenario
-export function login() {
-  // Make a POST request to login endpoint with username and password
-  let loginRes = http.post(LOGIN_URL, {
-    username: USERNAME,
-    password: PASSWORD,
-  });
+app.listen(port, () => console.log(`Server running on port ${port}`));
+</code>
+</pre>
 
-  // Check if the login was successful and the response code was 200
-  check(loginRes, {
-    'login was successful': (r) => r.status === 200,
-  });
+<br>
 
-  // Sleep for some time to simulate user think time
-  sleep(THINK_TIME);
-}
+<h2>3. Containerizing Microservices</h2>
+<p>I created a <code>Dockerfile</code> to define how to build a Docker image of my microservice:</p>
 
-// Define browse scenario
-export function browse() {
-  // Make a GET request to browse endpoint with a random category
-  let categories = ['books', 'electronics', 'clothing', 'toys'];
-  let category = categories[randomInt(0, categories.length - 1)];
-  let browseRes = http.get(`${BROWSE_URL}?category=${category}`);
+<br>
 
-  // Check if the browse was successful and the response code was 200
-  check(browseRes, {
-    'browse was successful': (r) => r.status === 200,
-  });
+<pre>
+<code>
+FROM node:16 AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
 
-  // Sleep for some time to simulate user think time
-  sleep(THINK_TIME);
-}
+FROM build AS final
+EXPOSE 3000
+CMD ["node", "server.js"]
+</code>
+</pre>
 
-// Define purchase scenario
-export function purchase() {
-  // Make a POST request to purchase endpoint with a random product id and quantity
-  let productIds = [1, 2, 3, 4, 5];
-  let productId = productIds[randomInt(0, productIds.length - 1)];
-  let quantity = randomInt(1, 5);
-  let purchaseRes = http.post(PURCHASE_URL, {
-    productId: productId,
-    quantity: quantity,
-  });
+<br>
 
-  // Check if the purchase was successful and the response code was 200
-  check(purchaseRes, {
-    'purchase was successful': (r) => r.status === 200,
-  });
+<h2>4. Deploying to Azure</h2>
+<p>I deployed my Docker containers to Azure using Azure Container Instances (ACI) and Azure Kubernetes Service (AKS). For the deployment, I utilized Azure CLI and Azure PowerShell.</p>
 
-  // Sleep for some time to simulate user think time
-  sleep(THINK_TIME);
-}
-```
+<h2>5. Using Azure Services</h2>
+<p>I made use of various Azure services as the backing services for my application:</p>
+<ul>
+  <li>Azure SQL Database or Azure Cosmos DB for data storage.</li>
+  <br>
+  <li>Azure Service Bus for message passing between microservices.</li>
+  <br>
+  <li>Azure Cache for Redis for caching.</li>
+  <br>
+  <li>Azure Application Insights for monitoring and diagnostics.</li>
+</ul>
+
+<h2>6. Ensuring Consistency Across Microservices</h2>
+<p>To ensure consistency and reliability across microservices, I implemented the saga pattern using Azure Service Bus and Azure Durable Functions. Here's an example of how I defined a durable function to coordinate a saga:</p>
+
+<br>
+
+<pre>
+<code>
+const df = require('durable-functions');
+
+module.exports = df.orchestrator(function* (context) {
+    const transactionData = context.df.getInput();
+
+    try {
+        yield context.df.callActivity('PerformStep1', transactionData);
+        yield context.df.callActivity('PerformStep2', transactionData);
+        // Additional steps...
+    } catch (error) {
+        // Compensate for any completed transactions
+        yield context.df.callActivity('CompensateStep1', transactionData);
+        yield context.df.callActivity('CompensateStep2', transactionData);
+        // Additional compensations...
+    }
+});
+</code>
+</pre>
+
+<br>
+
+<h2>7. Results and Feedback</h2>
+<p>After successfully migrating the application to a cloud-native architecture using Node.js and Azure, I received positive feedback from my manager and clients for my work. This is a testament to the benefits of using cloud-native architectures and the capabilities of Node.js and Azure.</p>
