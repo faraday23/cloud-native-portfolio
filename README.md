@@ -134,8 +134,8 @@
 
    <tr>
     <td align="center"><a href="topics/chaos_engineering/README.md"><img src="images/observability.png" width="75px;" height="75px;" alt="Chaos Engineering"/><br /><b>Message Queueing</b></a></td>
-    <td align="center"><a href="projects/18-message queueing/rabbitmq.md"><img src="images/rabbit-mq.png" width="75px;" height="75px;" alt="Misc"/><br /><b>RabbitMQ</b></a></td>
-    <td align="center"><a href="projects/18-message queueing/kafka.md"><img src="images/apache_kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Apache Kafka</b></a></td>
+    <td align="center"><a href="projects/18-message queueing/rabbitmq/rabbitmq.md"><img src="images/rabbit-mq.png" width="75px;" height="75px;" alt="Misc"/><br /><b>RabbitMQ</b></a></td>
+    <td align="center"><a href="projects/18-message queueing/kafka/kafka.md"><img src="images/apache_kafka.png" width="75px;" height="75px;" alt="Misc"/><br /><b>Apache Kafka</b></a></td>
    </tr>
 
    <tr>
