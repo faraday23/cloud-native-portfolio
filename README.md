@@ -45,7 +45,7 @@
   </tr>
 
   <tr>
-    <td align="center"><a href="topics/software_development/README.md"><img src="images/programming.png" width="75px;" height="75px;" alt="Containerization"/><br /><b>Containerization</b></a></td>
+    <td align="center"><a href="topics/software_development/README.md"><img src="images/containerization.png" width="75px;" height="75px;" alt="Containerization"/><br /><b>Containerization</b></a></td>
     <td align="center"><a href="projects/23-containerization/docker/docker.md"><img src="images/docker.png" width="75px;" height="75px;" alt="Docker"/><br /><b>Docker</b></a></td>
     <td align="center"><a href="projects/23-containerization/podman/podman.md"><img src="images/podman.png" width="75px;" height="75px;" alt="Podman"/><br /><b>Podman</b></a></td>
   </tr>
