@@ -19,6 +19,7 @@
     <td align="center"><a href="projects/22-ci-cd tools/github/github.md"><img src="images/github_actions.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>GitHub Actions</b></a></td>
     <td align="center"><a href="projects/22-ci-cd tools/gitlab/gitlab.md"><img src="images/gitlab.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>GitLab</b></a></td>
     <td align="center"><a href="projects/22-ci-cd tools/Octopus Deploy/octopus.md"><img src="images/octopus.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>Team City / Octopus Deploy</b></a></td>
+    <td align="center"><a href="projects/22-ci-cd tools/azure devops pipelines/devops.md"><img src="images/azure_devops.png" width="75px;" height="75px;" alt="DevOps" /><br /><b>Azure DevOps Pipelines</b></a></td>
   </tr>
 
   <tr>
